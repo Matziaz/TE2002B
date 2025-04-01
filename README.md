@@ -1,1 +1,1 @@
-# TE2002B Decryptor
+# TE2002B Encryptor & Decryptor
