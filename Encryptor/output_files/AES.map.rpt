@@ -1,0 +1,602 @@
+Analysis & Synthesis report for AES
+Tue Apr  8 21:52:47 2025
+Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Apr  8 21:52:47 2025       ;
+; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
+; Revision Name                      ; AES                                         ;
+; Top-level Entity Name              ; Top                                         ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 258                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; Top                ; AES                ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                            ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                     ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+; Top.vhd                          ; yes             ; User VHDL File  ; C:/Users/ricks/Downloads/P20_AES/Top.vhd         ;         ;
+; SubBytes.vhd                     ; yes             ; User VHDL File  ; C:/Users/ricks/Downloads/P20_AES/SubBytes.vhd    ;         ;
+; StateMach.vhd                    ; yes             ; User VHDL File  ; C:/Users/ricks/Downloads/P20_AES/StateMach.vhd   ;         ;
+; ShiftRows.vhd                    ; yes             ; User VHDL File  ; C:/Users/ricks/Downloads/P20_AES/ShiftRows.vhd   ;         ;
+; Mux2to1.vhd                      ; yes             ; User VHDL File  ; C:/Users/ricks/Downloads/P20_AES/Mux2to1.vhd     ;         ;
+; MixColumns.vhd                   ; yes             ; User VHDL File  ; C:/Users/ricks/Downloads/P20_AES/MixColumns.vhd  ;         ;
+; KeySchedule.vhd                  ; yes             ; User VHDL File  ; C:/Users/ricks/Downloads/P20_AES/KeySchedule.vhd ;         ;
+; CyperKey.vhd                     ; yes             ; User VHDL File  ; C:/Users/ricks/Downloads/P20_AES/CyperKey.vhd    ;         ;
+; AddRoundKey.vhd                  ; yes             ; User VHDL File  ; C:/Users/ricks/Downloads/P20_AES/AddRoundKey.vhd ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 258   ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; Clk   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 258   ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |Top                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 258  ; 0            ; 0          ; |Top                ; Top         ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 258                         ;
+; cycloneiii_lcell_comb ; 1                           ;
+;     normal            ; 1                           ;
+;         0 data inputs ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+    Info: Processing started: Tue Apr  8 21:52:41 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AES -c AES
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
+    Info (12022): Found design unit 1: Top-structure File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 40
+    Info (12023): Found entity 1: Top File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file subbytes.vhd
+    Info (12022): Found design unit 1: SubBytes-rtl File: C:/Users/ricks/Downloads/P20_AES/SubBytes.vhd Line: 39
+    Info (12023): Found entity 1: SubBytes File: C:/Users/ricks/Downloads/P20_AES/SubBytes.vhd Line: 28
+Info (12021): Found 2 design units, including 1 entities, in source file statemach.vhd
+    Info (12022): Found design unit 1: StateMach-rtl File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 59
+    Info (12023): Found entity 1: StateMach File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file shiftrows.vhd
+    Info (12022): Found design unit 1: ShiftRows-rtl File: C:/Users/ricks/Downloads/P20_AES/ShiftRows.vhd Line: 43
+    Info (12023): Found entity 1: ShiftRows File: C:/Users/ricks/Downloads/P20_AES/ShiftRows.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file mux2to1.vhd
+    Info (12022): Found design unit 1: Mux2to1-rtl File: C:/Users/ricks/Downloads/P20_AES/Mux2to1.vhd Line: 41
+    Info (12023): Found entity 1: Mux2to1 File: C:/Users/ricks/Downloads/P20_AES/Mux2to1.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file mixcolumns.vhd
+    Info (12022): Found design unit 1: MixColumns-rtl File: C:/Users/ricks/Downloads/P20_AES/MixColumns.vhd Line: 43
+    Info (12023): Found entity 1: MixColumns File: C:/Users/ricks/Downloads/P20_AES/MixColumns.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file keyschedule.vhd
+    Info (12022): Found design unit 1: KeySchedule-rtl File: C:/Users/ricks/Downloads/P20_AES/KeySchedule.vhd Line: 44
+    Info (12023): Found entity 1: KeySchedule File: C:/Users/ricks/Downloads/P20_AES/KeySchedule.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file cyperkey.vhd
+    Info (12022): Found design unit 1: CyperKey-rtl File: C:/Users/ricks/Downloads/P20_AES/CyperKey.vhd Line: 38
+    Info (12023): Found entity 1: CyperKey File: C:/Users/ricks/Downloads/P20_AES/CyperKey.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file addroundkey.vhd
+    Info (12022): Found design unit 1: AddRoundKey-rtl File: C:/Users/ricks/Downloads/P20_AES/AddRoundKey.vhd Line: 44
+    Info (12023): Found entity 1: AddRoundKey File: C:/Users/ricks/Downloads/P20_AES/AddRoundKey.vhd Line: 27
+Info (12127): Elaborating entity "Top" for the top level hierarchy
+Info (12128): Elaborating entity "AddRoundKey" for hierarchy "AddRoundKey:u0" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 169
+Warning (10541): VHDL Signal Declaration warning at AddRoundKey.vhd(31): used implicit default value for signal "Finish" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/AddRoundKey.vhd Line: 31
+Warning (10541): VHDL Signal Declaration warning at AddRoundKey.vhd(35): used implicit default value for signal "TxtOut" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/AddRoundKey.vhd Line: 35
+Info (12128): Elaborating entity "SubBytes" for hierarchy "SubBytes:u1" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 179
+Info (12128): Elaborating entity "ShiftRows" for hierarchy "ShiftRows:u2" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 188
+Warning (10541): VHDL Signal Declaration warning at ShiftRows.vhd(31): used implicit default value for signal "Finish" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/ShiftRows.vhd Line: 31
+Warning (10541): VHDL Signal Declaration warning at ShiftRows.vhd(34): used implicit default value for signal "TxtOut" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/ShiftRows.vhd Line: 34
+Info (12128): Elaborating entity "MixColumns" for hierarchy "MixColumns:u3" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 207
+Warning (10541): VHDL Signal Declaration warning at MixColumns.vhd(31): used implicit default value for signal "Finish" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/MixColumns.vhd Line: 31
+Warning (10541): VHDL Signal Declaration warning at MixColumns.vhd(34): used implicit default value for signal "TxtOut" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/MixColumns.vhd Line: 34
+Info (12128): Elaborating entity "Mux2to1" for hierarchy "Mux2to1:u8" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 244
+Warning (10541): VHDL Signal Declaration warning at Mux2to1.vhd(31): used implicit default value for signal "MuxOut" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/Mux2to1.vhd Line: 31
+Info (12128): Elaborating entity "KeySchedule" for hierarchy "KeySchedule:u9" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 251
+Warning (10541): VHDL Signal Declaration warning at KeySchedule.vhd(31): used implicit default value for signal "Finish" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/KeySchedule.vhd Line: 31
+Warning (10541): VHDL Signal Declaration warning at KeySchedule.vhd(33): used implicit default value for signal "KeyOut" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/KeySchedule.vhd Line: 33
+Info (12128): Elaborating entity "StateMach" for hierarchy "StateMach:u10" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 261
+Warning (10541): VHDL Signal Declaration warning at StateMach.vhd(29): used implicit default value for signal "AddRoundu0En" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 29
+Warning (10541): VHDL Signal Declaration warning at StateMach.vhd(31): used implicit default value for signal "AddRoundu4En" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 31
+Warning (10541): VHDL Signal Declaration warning at StateMach.vhd(33): used implicit default value for signal "AddRoundu7En" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 33
+Warning (10541): VHDL Signal Declaration warning at StateMach.vhd(36): used implicit default value for signal "KeyEn" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 36
+Warning (10541): VHDL Signal Declaration warning at StateMach.vhd(38): used implicit default value for signal "KeySel" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 38
+Warning (10541): VHDL Signal Declaration warning at StateMach.vhd(39): used implicit default value for signal "MixColumnsu3En" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 39
+Warning (10541): VHDL Signal Declaration warning at StateMach.vhd(41): used implicit default value for signal "MuxSel" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 41
+Warning (10541): VHDL Signal Declaration warning at StateMach.vhd(43): used implicit default value for signal "ShiftRowsu2En" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 43
+Warning (10541): VHDL Signal Declaration warning at StateMach.vhd(45): used implicit default value for signal "ShiftRowsu6En" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 45
+Warning (10541): VHDL Signal Declaration warning at StateMach.vhd(47): used implicit default value for signal "SubBytesu1En" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 47
+Warning (10541): VHDL Signal Declaration warning at StateMach.vhd(49): used implicit default value for signal "SubBytesu5En" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/StateMach.vhd Line: 49
+Info (12128): Elaborating entity "CyperKey" for hierarchy "CyperKey:u11" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 286
+Warning (10541): VHDL Signal Declaration warning at CyperKey.vhd(29): used implicit default value for signal "KeyOut" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ricks/Downloads/P20_AES/CyperKey.vhd Line: 29
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "CypherText[0]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[1]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[2]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[3]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[4]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[5]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[6]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[7]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[8]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[9]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[10]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[11]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[12]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[13]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[14]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[15]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[16]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[17]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[18]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[19]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[20]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[21]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[22]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[23]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[24]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[25]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[26]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[27]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[28]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[29]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[30]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[31]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[32]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[33]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[34]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[35]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[36]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[37]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[38]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[39]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[40]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[41]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[42]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[43]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[44]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[45]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[46]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[47]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[48]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[49]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[50]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[51]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[52]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[53]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[54]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[55]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[56]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[57]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[58]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[59]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[60]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[61]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[62]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[63]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[64]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[65]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[66]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[67]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[68]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[69]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[70]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[71]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[72]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[73]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[74]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[75]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[76]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[77]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[78]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[79]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[80]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[81]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[82]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[83]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[84]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[85]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[86]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[87]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[88]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[89]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[90]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[91]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[92]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[93]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[94]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[95]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[96]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[97]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[98]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[99]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[100]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[101]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[102]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[103]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[104]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[105]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[106]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[107]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[108]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[109]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[110]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[111]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[112]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[113]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[114]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[115]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[116]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[117]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[118]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[119]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[120]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[121]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[122]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[123]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[124]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[125]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[126]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+    Warning (13410): Pin "CypherText[127]" is stuck at GND File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 30
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 130 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "Clk" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 29
+    Warning (15610): No output dependent on input pin "PlainText[0]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[1]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[2]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[3]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[4]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[5]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[6]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[7]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[8]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[9]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[10]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[11]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[12]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[13]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[14]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[15]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[16]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[17]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[18]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[19]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[20]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[21]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[22]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[23]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[24]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[25]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[26]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[27]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[28]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[29]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[30]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[31]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[32]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[33]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[34]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[35]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[36]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[37]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[38]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[39]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[40]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[41]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[42]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[43]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[44]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[45]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[46]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[47]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[48]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[49]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[50]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[51]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[52]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[53]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[54]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[55]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[56]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[57]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[58]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[59]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[60]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[61]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[62]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[63]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[64]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[65]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[66]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[67]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[68]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[69]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[70]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[71]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[72]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[73]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[74]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[75]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[76]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[77]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[78]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[79]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[80]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[81]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[82]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[83]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[84]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[85]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[86]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[87]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[88]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[89]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[90]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[91]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[92]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[93]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[94]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[95]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[96]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[97]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[98]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[99]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[100]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[101]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[102]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[103]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[104]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[105]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[106]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[107]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[108]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[109]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[110]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[111]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[112]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[113]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[114]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[115]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[116]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[117]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[118]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[119]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[120]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[121]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[122]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[123]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[124]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[125]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[126]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "PlainText[127]" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "Reset" File: C:/Users/ricks/Downloads/P20_AES/Top.vhd Line: 32
+Info (21057): Implemented 258 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 130 input pins
+    Info (21059): Implemented 128 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 282 warnings
+    Info: Peak virtual memory: 4801 megabytes
+    Info: Processing ended: Tue Apr  8 21:52:47 2025
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:02
+
+
