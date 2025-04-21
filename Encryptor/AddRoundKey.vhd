@@ -8,9 +8,10 @@
 -- User name     : ricks
 -- Time stamp    : Mon Apr 07 09:53:12 2025
 --
--- Designed by   : 
+-- Designed by   : Artwwr
 -- Company       : 
--- Project info  : 
+-- Project info  : Round Key para encriptacion y decriptacion o sea es lo mismo
+--				   Pa q complicarse lol
 --
 --------------------------------------------------------------------------------
 
@@ -42,8 +43,30 @@ end entity AddRoundKey;
 
 
 architecture rtl of AddRoundKey is
-
 begin
+
+ApplyKey : process (Clk)
+begin 
+	if(rising_edge(Clk)) then
+		if(Rst = '1') then 
+			TxtOut <= (others => '0');
+			Finish <= '0';
+		else 
+	
+			if(Enable = '1') then 
+				TxtOut <= KeyIn xor TxtIn;
+				Finish <= '1';
+				
+			else Finish <= '0';
+			
+			end if;
+		end if;
+	
+	end if;
+	
+end process;
+
+
 
 end architecture rtl ; -- of AddRoundKey
 
