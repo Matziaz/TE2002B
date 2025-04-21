@@ -1,6 +1,6 @@
 Fitter report for AES
-Thu Apr 10 10:51:39 2025
-Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Mon Apr 21 10:26:28 2025
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
 ---------------------
@@ -42,7 +42,7 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2024  Intel Corporation. All rights reserved.
+Copyright (C) 2021  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -59,28 +59,28 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+-------------------------------------------------------------------------------------+
-; Fitter Summary                                                                      ;
-+------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Thu Apr 10 10:51:39 2025          ;
-; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
-; Revision Name                      ; AES                                            ;
-; Top-level Entity Name              ; Top                                            ;
-; Family                             ; MAX 10                                         ;
-; Device                             ; 10M50DAF484C7G                                 ;
-; Timing Models                      ; Final                                          ;
-; Total logic elements               ; 1 / 49,760 ( < 1 % )                           ;
-;     Total combinational functions  ; 1 / 49,760 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 0 / 49,760 ( 0 % )                             ;
-; Total registers                    ; 0                                              ;
-; Total pins                         ; 258 / 360 ( 72 % )                             ;
-; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                          ;
-; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                                ;
-; Total PLLs                         ; 0 / 4 ( 0 % )                                  ;
-; UFM blocks                         ; 0 / 1 ( 0 % )                                  ;
-; ADC blocks                         ; 0 / 2 ( 0 % )                                  ;
-+------------------------------------+------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Fitter Summary                                                                   ;
++------------------------------------+---------------------------------------------+
+; Fitter Status                      ; Successful - Mon Apr 21 10:26:28 2025       ;
+; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Revision Name                      ; AES                                         ;
+; Top-level Entity Name              ; Top                                         ;
+; Family                             ; MAX 10                                      ;
+; Device                             ; 10M50DAF484C7G                              ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 1 / 49,760 ( < 1 % )                        ;
+;     Total combinational functions  ; 1 / 49,760 ( < 1 % )                        ;
+;     Dedicated logic registers      ; 0 / 49,760 ( 0 % )                          ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 258 / 360 ( 72 % )                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
+; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                               ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
+; ADC blocks                         ; 0 / 2 ( 0 % )                               ;
++------------------------------------+---------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -145,15 +145,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 16          ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 10          ;
 ;                            ;             ;
-; Average used               ; 1.02        ;
-; Maximum used               ; 16          ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 10          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.1%      ;
+;     Processors 2-10        ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -195,7 +195,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Encryptor/output_files/AES.pin.
+The pin-out file can be found in C:/Users/ferna/Documents/TE2002B/Decryptor/output_files/AES.pin.
 
 
 +---------------------------------------------------------------------+
@@ -2488,7 +2488,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
 Info (119006): Selected device 10M50DAF484C7G for design "AES"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -2561,16 +2561,16 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.10 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.09 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
-Info (144001): Generated suppressed messages file C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Encryptor/output_files/AES.fit.smsg
+Info (144001): Generated suppressed messages file C:/Users/ferna/Documents/TE2002B/Decryptor/output_files/AES.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 6681 megabytes
-    Info: Processing ended: Thu Apr 10 10:51:39 2025
+    Info: Peak virtual memory: 6111 megabytes
+    Info: Processing ended: Mon Apr 21 10:26:28 2025
     Info: Elapsed time: 00:00:19
     Info: Total CPU time (on all processors): 00:00:24
 
@@ -2578,6 +2578,6 @@ Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Encryptor/output_files/AES.fit.smsg.
+The suppressed messages can be found in C:/Users/ferna/Documents/TE2002B/Decryptor/output_files/AES.fit.smsg.
 
 

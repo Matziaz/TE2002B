@@ -42,7 +42,7 @@ set_global_assignment -name DEVICE 10M50DAF484C7G
 set_global_assignment -name TOP_LEVEL_ENTITY Top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:58:06  APRIL 07, 2025"
-set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.1 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
 set_global_assignment -name VHDL_FILE Top.vhd
 set_global_assignment -name VHDL_FILE SubBytes.vhd
 set_global_assignment -name VHDL_FILE StateMach.vhd
