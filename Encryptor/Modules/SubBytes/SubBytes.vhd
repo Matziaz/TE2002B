@@ -23,7 +23,7 @@ architecture behavioral of SubBytes is
     signal result_reg : std_logic_vector(127 downto 0);
     signal byte_counter : integer range 0 to 16;
     
-    -- Forward S-Box LUT (SubBytes transformation table for encryption)
+    -- S-Box LUT (SubBytes transformation table)
     type sbox_array is array (0 to 255) of std_logic_vector(7 downto 0);
     constant SBOX : sbox_array := (
         -- Row 0
@@ -83,7 +83,8 @@ begin
                     -- Process one byte at a time
                     if byte_counter < 16 then
                         -- Extract byte index for current counter
-                        -- Process bytes linearly from MSB to LSB
+                        -- AES state is processed in column-major order
+                        -- But for simplicity, we'll process bytes linearly from MSB to LSB
                         -- Each byte is mapped through the S-box
                         result_reg(127 - 8*byte_counter downto 120 - 8*byte_counter) <= 
                             SBOX(to_integer(unsigned(data_reg(127 - 8*byte_counter downto 120 - 8*byte_counter))));
