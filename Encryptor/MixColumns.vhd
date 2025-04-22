@@ -1,11 +1,11 @@
 ----------------------------------------------------------------------------------
--- Company:				ITESM - IRS 2025
--- Author:           Yumee Chung, Ana Coronel, Adrián Márquez, Andrés Zegales
--- Create Date: 		22/04/2025
--- Design Name: 		Mix Columns
+-- Company:		ITESM - IRS 2025
+-- Author:           	Yumee Chung, Ana Coronel, Adrián Márquez, Andrés Zegales
+-- Create Date: 	22/04/2025
+-- Design Name: 	Mix Columns
 -- Module Name:		Mix Columns Module
 -- Target Devices: 	DE10-Lite
--- Description: 		Mix Columns AES - Module
+-- Description: 	Mix Columns AES - Module
 ----------------------------------------------------------------------------------
 
 library ieee;
