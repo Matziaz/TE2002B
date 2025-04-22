@@ -1,3 +1,13 @@
+----------------------------------------------------------------------------------
+-- Company:		ITESM - IRS 2025
+-- Author:           	Dalila Fonseca, Santiago Gonzáles, Victoria Robles, Angelo Segura
+-- Create Date: 	22/04/2025
+-- Design Name: 	Shift Rows
+-- Module Name:		Shift Rows Module
+-- Target Devices: 	DE10-Lite
+-- Description: 	Shift Rows AES - Module
+----------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -24,8 +34,8 @@ architecture rtl of ShiftRows is
     signal result       : std_logic_vector(127 downto 0);
     signal done         : std_logic := '0';
     signal enable_reg   : std_logic := '0';
-begin
-
+	 
+	 begin
     -- Clock and reset process for control signals
     process(Clk, Rst)
     begin
