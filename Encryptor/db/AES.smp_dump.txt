@@ -1,0 +1,12 @@
+
+State Machine - |Top|SubBytes:u5|current_state
+Name current_state.DONE current_state.PROCESSING current_state.IDLE 
+current_state.IDLE 0 0 0 
+current_state.PROCESSING 0 1 1 
+current_state.DONE 1 0 1 
+
+State Machine - |Top|SubBytes:u1|current_state
+Name current_state.DONE current_state.PROCESSING current_state.IDLE 
+current_state.IDLE 0 0 0 
+current_state.PROCESSING 0 1 1 
+current_state.DONE 1 0 1 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AES
-Mon Apr 21 10:26:08 2025
+Mon Apr 21 10:58:00 2025
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -13,10 +13,15 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  8. State Machine - |Top|SubBytes:u5|current_state
+  9. State Machine - |Top|SubBytes:u1|current_state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -43,7 +48,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Apr 21 10:26:08 2025       ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 21 10:58:00 2025       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; AES                                         ;
 ; Top-level Entity Name              ; Top                                         ;
@@ -181,35 +186,35 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+-----------------+------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 258   ;
-;                                             ;       ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; Clk   ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 258   ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++--------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                        ;
++---------------------------------------------+----------------------+
+; Resource                                    ; Usage                ;
++---------------------------------------------+----------------------+
+;                                             ;                      ;
+; Total combinational functions               ; 0                    ;
+; Logic element usage by number of LUT inputs ;                      ;
+;     -- 4 input functions                    ; 0                    ;
+;     -- 3 input functions                    ; 0                    ;
+;     -- <=2 input functions                  ; 0                    ;
+;                                             ;                      ;
+; Logic elements by mode                      ;                      ;
+;     -- normal mode                          ; 0                    ;
+;     -- arithmetic mode                      ; 0                    ;
+;                                             ;                      ;
+; Total registers                             ; 0                    ;
+;     -- Dedicated logic registers            ; 0                    ;
+;     -- I/O registers                        ; 0                    ;
+;                                             ;                      ;
+; I/O pins                                    ; 258                  ;
+;                                             ;                      ;
+; Embedded Multiplier 9-bit elements          ; 0                    ;
+;                                             ;                      ;
+; Maximum fan-out node                        ; CypherText[0]~output ;
+; Maximum fan-out                             ; 1                    ;
+; Total fan-out                               ; 258                  ;
+; Average fan-out                             ; 0.50                 ;
++---------------------------------------------+----------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -220,6 +225,59 @@ https://fpgasoftware.intel.com/eula.
 ; |Top                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 258  ; 0            ; 0          ; |Top                ; Top         ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |Top|SubBytes:u5|current_state                                                ;
++--------------------------+--------------------+--------------------------+--------------------+
+; Name                     ; current_state.DONE ; current_state.PROCESSING ; current_state.IDLE ;
++--------------------------+--------------------+--------------------------+--------------------+
+; current_state.IDLE       ; 0                  ; 0                        ; 0                  ;
+; current_state.PROCESSING ; 0                  ; 1                        ; 1                  ;
+; current_state.DONE       ; 1                  ; 0                        ; 1                  ;
++--------------------------+--------------------+--------------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |Top|SubBytes:u1|current_state                                                ;
++--------------------------+--------------------+--------------------------+--------------------+
+; Name                     ; current_state.DONE ; current_state.PROCESSING ; current_state.IDLE ;
++--------------------------+--------------------+--------------------------+--------------------+
+; current_state.IDLE       ; 0                  ; 0                        ; 0                  ;
+; current_state.PROCESSING ; 0                  ; 1                        ; 1                  ;
+; current_state.DONE       ; 1                  ; 0                        ; 1                  ;
++--------------------------+--------------------+--------------------------+--------------------+
+
+
++-------------------------------------------------------------+
+; Registers Removed During Synthesis                          ;
++----------------------------------------+--------------------+
+; Register name                          ; Reason for Removal ;
++----------------------------------------+--------------------+
+; SubBytes:u5|byte_counter[0..4]         ; Lost fanout        ;
+; SubBytes:u1|byte_counter[0..4]         ; Lost fanout        ;
+; SubBytes:u5|current_state.IDLE         ; Lost fanout        ;
+; SubBytes:u5|current_state.PROCESSING   ; Lost fanout        ;
+; SubBytes:u5|current_state.DONE         ; Lost fanout        ;
+; SubBytes:u1|current_state.IDLE         ; Lost fanout        ;
+; SubBytes:u1|current_state.PROCESSING   ; Lost fanout        ;
+; SubBytes:u1|current_state.DONE         ; Lost fanout        ;
+; Total Number of Removed Registers = 16 ;                    ;
++----------------------------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                       ;
++-----------------------------+--------------------+----------------------------------------------------------------+
+; Register name               ; Reason for Removal ; Registers Removed due to This Register                         ;
++-----------------------------+--------------------+----------------------------------------------------------------+
+; SubBytes:u5|byte_counter[3] ; Lost Fanouts       ; SubBytes:u5|current_state.IDLE, SubBytes:u5|current_state.DONE ;
+; SubBytes:u1|byte_counter[3] ; Lost Fanouts       ; SubBytes:u1|current_state.IDLE, SubBytes:u1|current_state.DONE ;
+; SubBytes:u5|byte_counter[4] ; Lost Fanouts       ; SubBytes:u5|current_state.PROCESSING                           ;
+; SubBytes:u1|byte_counter[4] ; Lost Fanouts       ; SubBytes:u1|current_state.PROCESSING                           ;
++-----------------------------+--------------------+----------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -235,6 +293,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |Top|SubBytes:u5|byte_counter[3] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |Top|SubBytes:u1|byte_counter[3] ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Top|SubBytes:u5|Selector129     ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Top|SubBytes:u1|Selector129     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
 
 
 +-----------------------------------------------------+
@@ -267,7 +337,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Mon Apr 21 10:25:55 2025
+    Info: Processing started: Mon Apr 21 10:57:46 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AES -c AES
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
@@ -275,8 +345,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
     Info (12022): Found design unit 1: Top-structure File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 40
     Info (12023): Found entity 1: Top File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 27
 Info (12021): Found 2 design units, including 1 entities, in source file subbytes.vhd
-    Info (12022): Found design unit 1: SubBytes-rtl File: C:/Users/ferna/Documents/TE2002B/Decryptor/SubBytes.vhd Line: 39
-    Info (12023): Found entity 1: SubBytes File: C:/Users/ferna/Documents/TE2002B/Decryptor/SubBytes.vhd Line: 28
+    Info (12022): Found design unit 1: SubBytes-behavioral File: C:/Users/ferna/Documents/TE2002B/Decryptor/SubBytes.vhd Line: 16
+    Info (12023): Found entity 1: SubBytes File: C:/Users/ferna/Documents/TE2002B/Decryptor/SubBytes.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file statemach.vhd
     Info (12022): Found design unit 1: StateMach-rtl File: C:/Users/ferna/Documents/TE2002B/Decryptor/StateMach.vhd Line: 59
     Info (12023): Found entity 1: StateMach File: C:/Users/ferna/Documents/TE2002B/Decryptor/StateMach.vhd Line: 27
@@ -298,6 +368,9 @@ Info (12021): Found 2 design units, including 1 entities, in source file cyperke
 Info (12021): Found 2 design units, including 1 entities, in source file addroundkey.vhd
     Info (12022): Found design unit 1: AddRoundKey-rtl File: C:/Users/ferna/Documents/TE2002B/Decryptor/AddRoundKey.vhd Line: 44
     Info (12023): Found entity 1: AddRoundKey File: C:/Users/ferna/Documents/TE2002B/Decryptor/AddRoundKey.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file subbytes_tb.vhd
+    Info (12022): Found design unit 1: SubBytes_tb-behavior File: C:/Users/ferna/Documents/TE2002B/Decryptor/SubBytes_tb.vhd Line: 8
+    Info (12023): Found entity 1: SubBytes_tb File: C:/Users/ferna/Documents/TE2002B/Decryptor/SubBytes_tb.vhd Line: 5
 Info (12127): Elaborating entity "Top" for the top level hierarchy
 Info (12128): Elaborating entity "AddRoundKey" for hierarchy "AddRoundKey:u0" File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 169
 Warning (10541): VHDL Signal Declaration warning at AddRoundKey.vhd(31): used implicit default value for signal "Finish" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ferna/Documents/TE2002B/Decryptor/AddRoundKey.vhd Line: 31
@@ -457,10 +530,10 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "CypherText[125]" is stuck at GND File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 30
     Warning (13410): Pin "CypherText[126]" is stuck at GND File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 30
     Warning (13410): Pin "CypherText[127]" is stuck at GND File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 30
+Info (17049): 16 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 130 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "Clk" File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 29
     Warning (15610): No output dependent on input pin "PlainText[0]" File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 31
     Warning (15610): No output dependent on input pin "PlainText[1]" File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 31
     Warning (15610): No output dependent on input pin "PlainText[2]" File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 31
@@ -589,14 +662,15 @@ Warning (21074): Design contains 130 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "PlainText[125]" File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 31
     Warning (15610): No output dependent on input pin "PlainText[126]" File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 31
     Warning (15610): No output dependent on input pin "PlainText[127]" File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 31
+    Warning (15610): No output dependent on input pin "Clk" File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 29
     Warning (15610): No output dependent on input pin "Reset" File: C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd Line: 32
 Info (21057): Implemented 258 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 130 input pins
     Info (21059): Implemented 128 output pins
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 282 warnings
     Info: Peak virtual memory: 4843 megabytes
-    Info: Processing ended: Mon Apr 21 10:26:08 2025
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:27
+    Info: Processing ended: Mon Apr 21 10:58:00 2025
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:28
 
 
