@@ -1,11 +1,11 @@
 ----------------------------------------------------------------------------------
--- Company:				ITESM - IRS 2025
--- Author:           Yumee Chung, Ana Coronel, Adrián Márquez, Andrés Zegales
--- Create Date: 		22/04/2025
--- Design Name: 		Mux 2 to 1
+-- Company:		ITESM - IRS 2025
+-- Author:           	Yumee Chung, Ana Coronel, Adrián Márquez, Andrés Zegales
+-- Create Date: 	22/04/2025
+-- Design Name: 	Mux 2 to 1
 -- Module Name:		Mux 2 to 1 Module
 -- Target Devices: 	DE10-Lite
--- Description: 		Mux 2 to 1 AES - Module
+-- Description: 	Mux 2 to 1 AES - Module
 ----------------------------------------------------------------------------------
 
 library ieee;
