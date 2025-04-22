@@ -1,11 +1,11 @@
 ----------------------------------------------------------------------------------
--- Company:				ITESM - IRS 2025
--- Author:           Emiliano Camacho, Obiel Rangel, Evan Santana, Alfredo Soto 
--- Create Date: 		22/04/2025
--- Design Name: 		Add Round Key
+-- Company:		ITESM - IRS 2025
+-- Author:           	Emiliano Camacho, Obiel Rangel, Evan Santana, Alfredo Soto 
+-- Create Date: 	22/04/2025
+-- Design Name: 	Add Round Key
 -- Module Name:		Add Round Key Module
 -- Target Devices: 	DE10-Lite
--- Description: 		Add Round Key AES - Module
+-- Description: 	Add Round Key AES - Module
 ----------------------------------------------------------------------------------
 
 library ieee;
