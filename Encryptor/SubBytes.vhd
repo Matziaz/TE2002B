@@ -1,10 +1,10 @@
 ----------------------------------------------------------------------------------
 -- Company:				ITESM - IRS 2025
--- Author:           Antonio Enguilo, Lizeth Niniz, Mariana Hernandez
+-- Author:              Antonio Enguilo, Lizeth Niniz, Mariana Hernandez
 -- Create Date: 		22/04/2025
 -- Design Name: 		Sub Bytes
--- Module Name:		Sub Bytes Module
--- Target Devices: 	DE10-Lite
+-- Module Name:		    Sub Bytes Module
+-- Target Devices: 	    DE10-Lite
 -- Description: 		Sub Bytes AES - Module
 ----------------------------------------------------------------------------------
 
