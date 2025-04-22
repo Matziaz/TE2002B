@@ -1,3 +1,13 @@
+----------------------------------------------------------------------------------
+-- Company:		ITESM - IRS 2025
+-- Author:           	Antonio Enguilo, Lizeth Niniz, Mariana Hernandez 
+-- Create Date: 	22/04/2025
+-- Design Name: 	Sub Bytes Testbench
+-- Module Name:		Sub Bytes Module
+-- Target Devices: 	DE10-Lite
+-- Description: 	Sub Bytes AES - Module
+----------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
