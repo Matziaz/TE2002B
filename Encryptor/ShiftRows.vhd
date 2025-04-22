@@ -1,11 +1,11 @@
 ----------------------------------------------------------------------------------
--- Company:				  ITESM - IRS 2025
--- Author:           Dalila Fonseca, Santiago Gonzáles, Victoria Robles, Angelo Segura
--- Create Date: 		22/04/2025
--- Design Name: 		Shift Rows
+-- Company:		ITESM - IRS 2025
+-- Author:           	Dalila Fonseca, Santiago Gonzáles, Victoria Robles, Angelo Segura
+-- Create Date: 	22/04/2025
+-- Design Name: 	Shift Rows
 -- Module Name:		Shift Rows Module
 -- Target Devices: 	DE10-Lite
--- Description: 		Shift Rows AES - Module
+-- Description: 	Shift Rows AES - Module
 ----------------------------------------------------------------------------------
 
 
