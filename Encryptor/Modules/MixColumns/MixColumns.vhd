@@ -134,16 +134,16 @@ architecture rtl of MixColumns is
          process_done <= '0';
       elsif rising_edge(Clk) then
           case state is
-				when idle =>
-					if Enable = '1' then
-						state <= processing;  
-               end if;
-            when processing =>
-               state_reg <= Mix(TxtIn);
-               state <= finished;    
-            when finished =>
-					process_done <= '1';
-            end case;
+		  when idle =>
+			if Enable = '1' then
+			state <= processing;  
+               		end if;
+		  when processing =>
+               		state_reg <= Mix(TxtIn);
+               		state <= finished;    
+            	  when finished =>
+			process_done <= '1';
+          end case;
         end if;
     end process;
 	 TxtOut <= state_reg when process_done = '1' else (others => '0');
