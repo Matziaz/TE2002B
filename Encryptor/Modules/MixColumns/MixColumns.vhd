@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company:		ITESM - IRS 2025
--- Author:           	Yumee Chung, Ana Coronel, Adrián Márquez, Andrés Zegales
+-- Author:           	Andrés Zegales Taborga, Ana Carolina Coronel, Yumee Chung, Adrián Márquez Núñez 
 -- Create Date: 	22/04/2025
 -- Design Name: 	Mix Columns
 -- Module Name:		Mix Columns Module
@@ -23,9 +23,14 @@ entity MixColumns is
     TxtOut : out    std_logic_vector(127 downto 0));
 end entity MixColumns;
 
+--------------------------------------------------------------------------------
+-- Object        : Architecture design.MixColumns.rtl
+-- Last modified : Fri May 08 16:43:39 2009
+--------------------------------------------------------------------------------
+
 architecture rtl of MixColumns is
 
-    -- Function Galois Multiplier 
+    -- Multiplicación de Galois - Polinomio 
 	function Mult(NumA : STD_LOGIC_VECTOR; NumB : STD_LOGIC_VECTOR) return STD_LOGIC_VECTOR is
 		type ROM is array (0 to 255) of STD_LOGIC_VECTOR(7 downto 0);
 		constant ROM2 : ROM := (	x"00",x"02",x"04",x"06",x"08",x"0A",x"0C",x"0E",x"10",x"12",x"14",x"16",x"18",x"1A",x"1C",x"1E",
@@ -71,7 +76,7 @@ architecture rtl of MixColumns is
 		end if; 	
    end Mult;
   
-	 -- Function Galois Adder
+	 -- Suma de Galois
 	function Mix (PlainTxt : std_logic_vector) return std_logic_vector is 
 		variable byte0  : std_logic_vector(7 downto 0) := PlainTxt(127 downto 120);
 		variable byte1  : std_logic_vector(7 downto 0) := PlainTxt(119 downto 112);
@@ -114,39 +119,33 @@ architecture rtl of MixColumns is
 		return CypherTxt; 
 	end Mix;
     
-    -- Máquina de estados optimizada
-	signal state_reg : STD_LOGIC_VECTOR (127 downto 0);  
-	signal process_done: STD_LOGIC := '0';               
-	 -- Define states for the state machine
-   type state_type is (idle, processing, finished); 
+    --Máquina de estados
+   signal state_reg : STD_LOGIC_VECTOR (127 downto 0);  
+   signal process_done: STD_LOGIC := '0';               
+   type state_type is (idle, processing, finished);  
    signal state : state_type := idle;                
 
 	begin
-    -- State machine to manage processing states
    process(Clk,Rst)
    begin
 		if Rst = '1' then
-			state <= idle;          
+			state <= idle;
          state_reg <= (others => '0');
          process_done <= '0';
-		elsif rising_edge(Clk) then
-         case state is
+      elsif rising_edge(Clk) then
+          case state is
 				when idle =>
 					if Enable = '1' then
 						state <= processing;  
                end if;
             when processing =>
-					state_reg <= Mix(TxtIn);  
-               state <= finished;         
+               state_reg <= Mix(TxtIn);
+               state <= finished;    
             when finished =>
-               process_done <= '1';       
-               if Enable = '0' then
-						state <= idle;          
-                  process_done <= '0';
-               end if;
-			end case;
-		end if;
+					process_done <= '1';
+            end case;
+        end if;
     end process;
-    TxtOut <= state_reg;    
-    Finish <= process_done; 
-end architecture rtl ;
+	 TxtOut <= state_reg when process_done = '1' else (others => '0');
+	 Finish <= process_done;     
+end architecture rtl ; -- of MixColumns
