@@ -80,11 +80,11 @@ begin
         wait for Clk_period;
         Enable <= '0';
 		  
-		  wait until Finish = '1';
-		  wait for Clk_period;
+	wait until Finish = '1';
+	wait for Clk_period;
 			
         -- Expected output: x"046681e5e0cb199a48f8d37a2806264c"
-		  -- if the expected output is not generated then the next error message will be sent 
+	-- if the expected output is not generated then the next error message will be sent 
         assert TxtOut = x"046681e5e0cb199a48f8d37a2806264c"
             report "Test case 1 failed" severity error;
         wait for Clk_period*2;
