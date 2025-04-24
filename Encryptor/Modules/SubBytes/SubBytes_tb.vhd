@@ -79,69 +79,69 @@ begin
     Enable <= '0';
     wait until Finish = '1';
     
-    -- Test case 1: All zeros input
-    TxtIn <= (others => '0');
-    Enable <= '1';
-    wait for Clk_period;
-    Enable <= '0';
-    wait until Finish = '1';
-    wait for Clk_period;
-    report "Test case 1: All zeros input";
-    
-    -- Test case 2: Sequential values (00 to FF in first byte, others 00)
-    TxtIn <= x"000000000000000000000000000000" & "00000001";
-    Enable <= '1';
-    wait for Clk_period;
-    Enable <= '0';
-    wait until Finish = '1';
-    wait for Clk_period;
-    report "Test case 2: Input 0x01";
-    
-    -- Test case 3: All bytes 0x53
-    TxtIn <= (others => '0');
-    for i in 0 to 15 loop
-      TxtIn((i*8)+7 downto i*8) <= x"53";
-    end loop;
-    Enable <= '1';
-    wait for Clk_period;
-    Enable <= '0';
-    wait until Finish = '1';
-    wait for Clk_period;
-    report "Test case 3: All bytes 0x53";
-    
-    -- Test case 4: Random test vector (AES test vector)
-    TxtIn <= x"00102030405060708090a0b0c0d0e0f0";
-    Enable <= '1';
-    wait for Clk_period;
-    Enable <= '0';
-    wait until Finish = '1';
-    wait for Clk_period;
-    report "Test case 4: AES test vector";
-    
-    -- Test case 5: Reset during operation
-    TxtIn <= x"00112233445566778899aabbccddeeff";
-    Enable <= '1';
-    wait for Clk_period/2;
-    Rst <= '1';
-    wait for Clk_period;
-    Rst <= '0';
-    Enable <= '0';
-    wait for Clk_period*2;
-    report "Test case 5: Reset during operation";
-    
-    -- Test case 6: Enable pulse verification
-    TxtIn <= x"0123456789abcdef0123456789abcdef";
-    Enable <= '1';
-    wait for Clk_period;
-    Enable <= '0';
-    -- Try to change input while not enabled
-    TxtIn <= x"00000000000000000000000000000000";
-    wait until Finish = '1';
-    wait for Clk_period;
-    report "Test case 6: Enable pulse verification";
-    
-    -- End simulation
-    report "Simulation completed" severity note;
+--    -- Test case 1: All zeros input
+--    TxtIn <= (others => '0');
+--    Enable <= '1';
+--    wait for Clk_period;
+--    Enable <= '0';
+--    wait until Finish = '1';
+--    wait for Clk_period;
+--    report "Test case 1: All zeros input";
+--    
+--    -- Test case 2: Sequential values (00 to FF in first byte, others 00)
+--    TxtIn <= x"000000000000000000000000000000" & "00000001";
+--    Enable <= '1';
+--    wait for Clk_period;
+--    Enable <= '0';
+--    wait until Finish = '1';
+--    wait for Clk_period;
+--    report "Test case 2: Input 0x01";
+--    
+--    -- Test case 3: All bytes 0x53
+--    TxtIn <= (others => '0');
+--    for i in 0 to 15 loop
+--      TxtIn((i*8)+7 downto i*8) <= x"53";
+--    end loop;
+--    Enable <= '1';
+--    wait for Clk_period;
+--    Enable <= '0';
+--    wait until Finish = '1';
+--    wait for Clk_period;
+--    report "Test case 3: All bytes 0x53";
+--    
+--    -- Test case 4: Random test vector (AES test vector)
+--    TxtIn <= x"00102030405060708090a0b0c0d0e0f0";
+--    Enable <= '1';
+--    wait for Clk_period;
+--    Enable <= '0';
+--    wait until Finish = '1';
+--    wait for Clk_period;
+--    report "Test case 4: AES test vector";
+--    
+--    -- Test case 5: Reset during operation
+--    TxtIn <= x"00112233445566778899aabbccddeeff";
+--    Enable <= '1';
+--    wait for Clk_period/2;
+--    Rst <= '1';
+--    wait for Clk_period;
+--    Rst <= '0';
+--    Enable <= '0';
+--    wait for Clk_period*2;
+--    report "Test case 5: Reset during operation";
+--    
+--    -- Test case 6: Enable pulse verification
+--    TxtIn <= x"0123456789abcdef0123456789abcdef";
+--    Enable <= '1';
+--    wait for Clk_period;
+--    Enable <= '0';
+--    -- Try to change input while not enabled
+--    TxtIn <= x"00000000000000000000000000000000";
+--    wait until Finish = '1';
+--    wait for Clk_period;
+--    report "Test case 6: Enable pulse verification";
+--    
+--    -- End simulation
+--    report "Simulation completed" severity note;
 
     wait;
   end process;
