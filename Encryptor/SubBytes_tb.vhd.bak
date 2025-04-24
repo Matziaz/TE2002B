@@ -1,0 +1,90 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_SubBytes is
+end entity;
+
+architecture test of tb_SubBytes is
+
+  -- Componente bajo prueba
+  component SubBytes
+    port (
+      Clk    : in  std_logic;
+      Enable : in  std_logic;
+      Finish : out std_logic;
+      Rst    : in  std_logic;
+      TxtIn  : in  std_logic_vector(127 downto 0);
+      TxtOut : out std_logic_vector(127 downto 0)
+    );
+  end component;
+
+  -- Señales para conectar al DUT
+  signal Clk_tb    : std_logic := '0';
+  signal Enable_tb : std_logic := '0';
+  signal Finish_tb : std_logic;
+  signal Rst_tb    : std_logic := '1';
+  signal TxtIn_tb  : std_logic_vector(127 downto 0) := (others => '0');
+  signal TxtOut_tb : std_logic_vector(127 downto 0);
+
+  -- Clock period
+  constant CLK_PERIOD : time := 10 ns;
+
+begin
+
+  -- Instancia del DUT
+  uut: SubBytes
+    port map (
+      Clk    => Clk_tb,
+      Enable => Enable_tb,
+      Finish => Finish_tb,
+      Rst    => Rst_tb,
+      TxtIn  => TxtIn_tb,
+      TxtOut => TxtOut_tb
+    );
+
+  -- Generador de reloj
+  clk_process : process
+  begin
+    while true loop
+      Clk_tb <= '0';
+      wait for CLK_PERIOD / 2;
+      Clk_tb <= '1';
+      wait for CLK_PERIOD / 2;
+    end loop;
+  end process;
+
+  -- Estímulos
+  stim_proc: process
+  begin
+    -- Reset inicial
+    wait for 20 ns;
+    Rst_tb <= '0';
+
+    -- Asignar valor de entrada
+    TxtIn_tb <= x"00112233445566778899AABBCCDDEEFF"; -- Vector de prueba
+
+    wait for 10 ns;
+    Enable_tb <= '1'; -- Activar módulo
+
+    wait for CLK_PERIOD;
+    Enable_tb <= '0'; -- Desactivar enable
+
+    -- Esperar a que el módulo termine
+    wait until Finish_tb = '1';
+
+    -- Ver resultados
+    wait for 20 ns;
+
+    -- Otra prueba (opcional)
+    TxtIn_tb <= x"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"; -- Todos 1s
+    Enable_tb <= '1';
+    wait for CLK_PERIOD;
+    Enable_tb <= '0';
+    wait until Finish_tb = '1';
+
+    -- Final de simulación
+    wait;
+  end process;
+
+end architecture;
