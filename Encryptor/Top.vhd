@@ -287,4 +287,3 @@ begin
     port map(
       KeyOut => u11_KeyOut);
 end architecture structure ; -- of Top
-
