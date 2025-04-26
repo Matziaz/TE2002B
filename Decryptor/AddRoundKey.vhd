@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity AddRoundKey is
+entity InvAddRoundKey is
   port (
     Clk    : in  std_logic;                     -- Reloj del sistema
     Enable : in  std_logic;                     -- Habilitación del módulo
@@ -11,9 +11,9 @@ entity AddRoundKey is
     Rst    : in  std_logic;                     -- Reset síncrono
     TxtIn  : inout std_logic_vector(0 to 127)   -- Texto de entrada/salida (modificado a inout)
   );
-end entity AddRoundKey;
+end entity InvAddRoundKey;
 
-architecture data_processing of AddRoundKey is
+architecture data_processing of InvAddRoundKey is
   -- Señal interna para el procesamiento
   signal processed_data : std_logic_vector(0 to 127);
 begin

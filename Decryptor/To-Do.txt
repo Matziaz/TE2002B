@@ -1,0 +1,10 @@
+Usen este arhcivo si necesitan anotar algo lol
+[ADD ROUND KEY]
+
+[KEY SCHEDULE]
+
+[MIX COLUMNS]
+
+[SUB BYTES]
+
+[MUX]
