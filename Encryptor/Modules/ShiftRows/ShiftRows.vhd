@@ -24,36 +24,60 @@ end entity ShiftRows;
 
 architecture rtl of ShiftRows is
     -- Arrays for 16 bytes
-	 --type state_type is (St0, St1, St2);
-	 --signal present_state, next_state : state_type;
+	 type state_type is (St0, St1, St2);
+	 signal present_state, next_state : state_type;
     type byte_array is array (0 to 15) of std_logic_vector(7 downto 0);
     
     -- Internal signals
     signal input_bytes  : byte_array;
     signal output_bytes : byte_array;
     signal result       : std_logic_vector(127 downto 0);
+	 signal result_reg   : std_logic_vector(127 downto 0);
     signal done         : std_logic := '0';
     signal enable_reg   : std_logic := '0';
-	 
-	 begin
+begin
+
     -- Clock and reset process for control signals
     process(Clk, Rst)
     begin
         if Rst = '1' then
-				--present_state <= St0;
+				present_state <= St0;
             done <= '0';
             enable_reg <= '0';
         elsif rising_edge(Clk) then
             -- Register the enable signal
-				--present_state <= next_state;
+				present_state <= next_state;
             enable_reg <= Enable;
-            
-            done <= '0';
-            if enable_reg = '1' then
-                done <= '1';
-            end if;
+				
+				case present_state is
+					when St0 =>
+						done <= '0';
+					when St1 =>
+						result_reg <= result;
+					when St2 =>
+						done <= '1';
+				end case;
         end if;
     end process;
+	 
+	 process(present_state, Enable)
+	 begin
+		next_state <= present_state;
+		
+		case present_state is 
+			when St0 =>
+				if Enable = '1' then
+					next_state <= St1;
+				end if;
+			when St1 =>
+				next_state <= St2;
+			when St2 =>
+				if Enable = '0' then
+					next_state <= St0;
+				end if;
+		end case;
+	end process;
+					
 
     -- Input separation process (combinational)
     process (TxtIn)
@@ -95,10 +119,9 @@ architecture rtl of ShiftRows is
             output_bytes(4)  & output_bytes(5)  & output_bytes(6)  & output_bytes(7)  &
             output_bytes(8)  & output_bytes(9)  & output_bytes(10) & output_bytes(11) &
             output_bytes(12) & output_bytes(13) & output_bytes(14) & output_bytes(15);
-    end process;
+	 end process;
 
     -- Output assignments
-    TxtOut <= result when done = '1' else (others => '0');
+    TxtOut <= result_reg;
     Finish <= done;
-
-end architecture rtl;
+  end architecture rtl;
