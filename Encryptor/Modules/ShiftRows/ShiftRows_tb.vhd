@@ -77,7 +77,7 @@ begin
         wait for Clk_period;
         
         -- Apply test vector
-        TxtIn <= X"000102030405060708090A0B0C0D0E0F";
+		  TxtIn <= X"D42711AEE0BF98F1B8B45DE51E415230";
         Enable <= '1';
         wait for Clk_period;
         Enable <= '0';
