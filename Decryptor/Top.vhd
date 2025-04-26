@@ -77,8 +77,7 @@ architecture structure of Top is
       Finish : out    std_logic;
       KeyIn  : in     std_logic_vector(127 downto 0);
       Rst    : in     std_logic;
-      TxtIn  : in     std_logic_vector(127 downto 0);
-      TxtOut : out    std_logic_vector(127 downto 0));
+      TxtIn  : inout     std_logic_vector(127 downto 0);
   end component AddRoundKey;
 
   component SubBytes

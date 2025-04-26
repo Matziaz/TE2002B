@@ -30,8 +30,8 @@ entity MixColumns is
     Enable : in     std_logic;
     Finish : out    std_logic;
     Rst    : in     std_logic;
-    DataIn  : in     std_logic_vector(127 downto 0);
-    DataOut : out    std_logic_vector(127 downto 0));
+    TxtIn  : in     std_logic_vector(127 downto 0);
+    TxtOut : out    std_logic_vector(127 downto 0));
 end entity MixColumns;
 
 --------------------------------------------------------------------------------
@@ -94,17 +94,17 @@ begin
   begin
     if rising_edge(Clk) then
       if Rst = '1' then
-        DataOut <= (others => '0');
+        TxtOut <= (others => '0');
         Finish <= '0';
       elsif Enable = '1' then
         -- Procesar las 4 columnas (de 32 bits cada una)
         for col_num in 0 to 3 loop
           -- Extraer la columna actual
           case col_num is
-            when 0 => col := DataIn(127 downto 96);
-            when 1 => col := DataIn(95 downto 64);
-            when 2 => col := DataIn(63 downto 32);
-            when 3 => col := DataIn(31 downto 0);
+            when 0 => col := TxtIn(127 downto 96);
+            when 1 => col := TxtIn(95 downto 64);
+            when 2 => col := TxtIn(63 downto 32);
+            when 3 => col := TxtIn(31 downto 0);
             when others => col := (others => '0');
           end case;
           
@@ -133,10 +133,10 @@ begin
           
           -- Almacenar resultado
           case col_num is
-            when 0 => DataOut(127 downto 96) <= new_col;
-            when 1 => DataOut(95 downto 64) <= new_col;
-            when 2 => DataOut(63 downto 32) <= new_col;
-            when 3 => DataOut(31 downto 0) <= new_col;
+            when 0 => TxtOut(127 downto 96) <= new_col;
+            when 1 => TxtOut(95 downto 64) <= new_col;
+            when 2 => TxtOut(63 downto 32) <= new_col;
+            when 3 => TxtOut(31 downto 0) <= new_col;
             when others => null;
           end case;
         end loop;
