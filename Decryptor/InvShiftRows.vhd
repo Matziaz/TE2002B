@@ -21,6 +21,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+-- Definición de la entidad InvShiftRows
+-- Esta entidad realiza la operación de "Inverse ShiftRows" para AES.
 
 entity InvShiftRows is
   port (
@@ -29,9 +31,9 @@ entity InvShiftRows is
     Finish : out    std_logic;
     Rst    : in     std_logic;
     TxtIn  : in     std_logic_vector(127 downto 0);
-    TxtOut : out    std_logic_vector(127 downto 0));
+    TxtOut : out    std_logic_vector(127 downto 0)
+  );
 end entity InvShiftRows;
-
 --------------------------------------------------------------------------------
 -- Object        : Architecture design.InvShiftRows.rtl
 -- Last modified : Thu Apr 10 19:09:52 2025
@@ -41,30 +43,34 @@ end entity InvShiftRows;
 architecture rtl of InvShiftRows is
   signal output_reg             : std_logic_vector(127 downto 0);
 begin
+ -- Proceso síncrono-asíncrono: sensible al reloj y al reset
 
-	process(Clk, Rst)
+  process(Clk, Rst)
   begin
     if Rst = '1' then
+	      -- Si se activa el reset, se limpia el registro de salida y se baja la señal de finalización
       output_reg <= (others => '0');
       Finish <= '0';
 
     elsif rising_edge(Clk) then
       if Enable = '1' then
-        -- Reconstrucción
+      -- Si Enable está activo, realiza la operación de Inverse ShiftRows:
+      -- Reorganiza los bytes de entrada según el patrón inverso definido para AES.
 		 output_reg <= TxtIn(127 downto 120) & TxtIn(23 downto 16) & TxtIn(47 downto 40) & TxtIn(71 downto 64) &
 							TxtIn(95 downto 88) & TxtIn(119 downto 112) & TxtIn(15 downto 8) & TxtIn(39 downto 32) &
 							TxtIn(63 downto 56) & TxtIn(87 downto 80) & TxtIn(111 downto 104) & TxtIn(7 downto 0) &
 							TxtIn(31 downto 24) & TxtIn(55 downto 48) & TxtIn(79 downto 72) & TxtIn(103 downto 96); 
-		  
+			
+		-- Se activa la señal de finalización
         Finish <= '1';
       else
+		-- Si no está habilitado, se mantiene Finish en bajo
         Finish <= '0';
       end if;
     end if;
   end process;
-
+ -- Asignación continua del contenido del registro a la salida
   TxtOut <= output_reg;
-	
 
-end architecture rtl ; -- of InvShiftRows
+end architecture rtl; -- of InvShiftRows
 
