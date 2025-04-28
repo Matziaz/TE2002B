@@ -1,4 +1,4 @@
-----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- Company:		ITESM - IRS 2025
 -- Author:           	Andrés Zegales Taborga, Ana Carolina Coronel, Yumee Chung, Adrián Márquez Núñez 
 -- Create Date: 	22/04/2025
@@ -6,22 +6,21 @@
 -- Module Name:		Mix Columns Module
 -- Target Devices: 	DE10-Lite
 -- Description: 	Mix Columns AES - Module
-----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all; 
 use ieee.numeric_std.all; 
 
---Puertos de Entrada y de Salida
 entity MixColumns is
   port (
-    Clk    : in     std_logic;  --Señal de reloj
-    Enable : in     std_logic;  --Habilita el funcionamiento
-    Finish : out    std_logic;  --Indica fin de funcionamiento 
-    Rst    : in     std_logic;  --Señal de reset  
-    TxtIn  : in     std_logic_vector(127 downto 0); --Texto de entrada de datos de 128 bits
-    TxtOut : out    std_logic_vector(127 downto 0)); -- Texto de salida de datos de 128 bits
+    Clk    : in     std_logic;
+    Enable : in     std_logic;
+    Finish : out    std_logic;
+    Rst    : in     std_logic;
+    TxtIn  : in     std_logic_vector(127 downto 0);
+    TxtOut : out    std_logic_vector(127 downto 0));
 end entity MixColumns;
 
 --------------------------------------------------------------------------------
@@ -31,8 +30,7 @@ end entity MixColumns;
 
 architecture rtl of MixColumns is
 
-    -- Multiplicación de Galois - Polinomio  	
-    -- Recibe dos vectores y devuelve la multiplición por dos (2^8)
+    -- Multiplicación de Galois - Polinomio 
 	function Mult(NumA : STD_LOGIC_VECTOR; NumB : STD_LOGIC_VECTOR) return STD_LOGIC_VECTOR is
 		type ROM is array (0 to 255) of STD_LOGIC_VECTOR(7 downto 0);
 		constant ROM2 : ROM := (	x"00",x"02",x"04",x"06",x"08",x"0A",x"0C",x"0E",x"10",x"12",x"14",x"16",x"18",x"1A",x"1C",x"1E",
@@ -43,7 +41,7 @@ architecture rtl of MixColumns is
 											x"A0",x"A2",x"A4",x"A6",x"A8",x"AA",x"AC",x"AE",x"B0",x"B2",x"B4",x"B6",x"B8",x"BA",x"BC",x"BE",
 											x"C0",x"C2",x"C4",x"C6",x"C8",x"CA",x"CC",x"CE",x"D0",x"D2",x"D4",x"D6",x"D8",x"DA",x"DC",x"DE",
 											x"E0",x"E2",x"E4",x"E6",x"E8",x"EA",x"EC",x"EE",x"F0",x"F2",x"F4",x"F6",x"F8",x"FA",x"FC",x"FE",
-				--Se aplica el módulo  del polinomio irreducible	x"1B",x"19",x"1F",x"1D",x"13",x"11",x"17",x"15",x"0B",x"09",x"0F",x"0D",x"03",x"01",x"07",x"05",
+											x"1B",x"19",x"1F",x"1D",x"13",x"11",x"17",x"15",x"0B",x"09",x"0F",x"0D",x"03",x"01",x"07",x"05",
 											x"3B",x"39",x"3F",x"3D",x"33",x"31",x"37",x"35",x"2B",x"29",x"2F",x"2D",x"23",x"21",x"27",x"25",
 											x"5B",x"59",x"5F",x"5D",x"53",x"51",x"57",x"55",x"4B",x"49",x"4F",x"4D",x"43",x"41",x"47",x"45",
 											x"7B",x"79",x"7F",x"7D",x"73",x"71",x"77",x"75",x"6B",x"69",x"6F",x"6D",x"63",x"61",x"67",x"65",
@@ -51,7 +49,7 @@ architecture rtl of MixColumns is
 											x"BB",x"B9",x"BF",x"BD",x"B3",x"B1",x"B7",x"B5",x"AB",x"A9",x"AF",x"AD",x"A3",x"A1",x"A7",x"A5",
 											x"DB",x"D9",x"DF",x"DD",x"D3",x"D1",x"D7",x"D5",x"CB",x"C9",x"CF",x"CD",x"C3",x"C1",x"C7",x"C5",
 											x"FB",x"F9",x"FF",x"FD",x"F3",x"F1",x"F7",x"F5",x"EB",x"E9",x"EF",x"ED",x"E3",x"E1",x"E7",x"E5");
-		--Tabla de multiplicación por 3. 
+	
 		constant ROM3 : ROM := (	x"00",x"03",x"06",x"05",x"0C",x"0F",x"0A",x"09",x"18",x"1B",x"1E",x"1D",x"14",x"17",x"12",x"11",
 											x"30",x"33",x"36",x"35",x"3C",x"3F",x"3A",x"39",x"28",x"2B",x"2E",x"2D",x"24",x"27",x"22",x"21",
 											x"60",x"63",x"66",x"65",x"6C",x"6F",x"6A",x"69",x"78",x"7B",x"7E",x"7D",x"74",x"77",x"72",x"71",
@@ -69,19 +67,15 @@ architecture rtl of MixColumns is
 											x"3B",x"38",x"3D",x"3E",x"37",x"34",x"31",x"32",x"23",x"20",x"25",x"26",x"2F",x"2C",x"29",x"2A",
 											x"0B",x"08",x"0D",x"0E",x"07",x"04",x"01",x"02",x"13",x"10",x"15",x"16",x"1F",x"1C",x"19",x"1A");
 	begin 
-		--Cuando NumB = x"02", usa la tabla ROM2
 		if (NumB = x"02") then
 			return ROM2(to_integer(unsigned(NumA))); 
-		--Cuando NumB = x"03", usa la tabla ROM3
 		elsif (NumB = x"03") then 
 			return ROM3(to_integer(unsigned(NumA)));
-		--Para otro valor de num B devuelve x"00" ya que solo multiplica por 2 y 3 
 		else 
 			return x"00";
 		end if; 	
    end Mult;
-  	 -- Divide el bloque de 128 bits en 16 bytes individuales (byte0 a byte15), donde cada variable byteX indica un byte del bloque de entrada
-	 --(16 bytes = 128 bits)		
+  
 	 -- Suma de Galois
 	function Mix (PlainTxt : std_logic_vector) return std_logic_vector is 
 		variable byte0  : std_logic_vector(7 downto 0) := PlainTxt(127 downto 120);
@@ -100,9 +94,8 @@ architecture rtl of MixColumns is
 		variable byte13 : std_logic_vector(7 downto 0) := PlainTxt (23 downto 16);
 		variable byte14 : std_logic_vector(7 downto 0) := PlainTxt (15 downto 8);
 		variable byte15 : std_logic_vector(7 downto 0) := PlainTxt  (7 downto 0);
-		variable CypherTxt : std_logic_vector(127 downto 0); -- Salida que tendrá el texto cifrado 
+		variable CypherTxt : std_logic_vector(127 downto 0);
 		begin
-		--Cada línea es un nuevo byte de la columna transformada, la multiplicación usa la función Mult y la suma es equivalente a XOR. 	
 		-- First Colummn
 		CypherTxt (127 downto 120) := Mult(byte0,x"02") XOR Mult(byte1,x"03") XOR byte2 XOR byte3; -- 02 03 01 01
 		CypherTxt (119 downto 112) := byte0 XOR Mult(byte1,x"02") XOR Mult(byte2,x"03") XOR byte3; -- 01 02 03 01
@@ -126,33 +119,37 @@ architecture rtl of MixColumns is
 		return CypherTxt; 
 	end Mix;
     
-    --Máquina de estados
-   signal state_reg : STD_LOGIC_VECTOR (127 downto 0);  
-   signal process_done: STD_LOGIC := '0';               
-   type state_type is (idle, processing, finished);  
-   signal state : state_type := idle;                
-
-	begin
+   --Máquina de estados
+signal state_reg : STD_LOGIC_VECTOR (127 downto 0);  
+signal process_done: STD_LOGIC := '0';               
+type state_type is (idle, processing, finished);  
+signal state : state_type := idle;                
+begin
    process(Clk,Rst)
    begin
-		if Rst = '1' then
-			state <= idle;
+      if Rst = '1' then
+         state <= idle;
          state_reg <= (others => '0');
          process_done <= '0';
+         TxtOut <= (others => '0');
       elsif rising_edge(Clk) then
-          case state is
-		  when idle =>  --Estado inicial, espera que el enable esté activado en '1'
-			if Enable = '1' then
-			state <= processing;  
-               		end if;
-		  when processing => -- Ejecuta el módulo sobre la entrada TxtIn
-               		state_reg <= Mix(TxtIn);
-               		state <= finished;    
-            	  when finished =>  --Estado final, activa señal de process_done 
-			process_done <= '1';
-          end case;
-        end if;
-    end process;
-	 TxtOut <= state_reg when process_done = '1' else (others => '0');
-	 Finish <= process_done;     
+         case state is
+            when idle =>
+               process_done <= '0';
+               if Enable = '1' then
+                  state <= processing;
+               end if;
+            when processing =>
+               state_reg <= Mix(TxtIn);
+               state <= finished;  
+            when finished =>
+               process_done <= '1';
+               TxtOut <= state_reg;
+               if Enable = '0' then 
+                  state <= idle;
+               end if;
+         end case;
+      end if;
+   end process;
+   Finish <= '1' when process_done = '1' else '0';
 end architecture rtl ; -- of MixColumns
