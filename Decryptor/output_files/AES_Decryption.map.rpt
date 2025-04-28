@@ -1,0 +1,683 @@
+Analysis & Synthesis report for AES_Decryption
+Mon Apr 28 11:05:35 2025
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Top|InvSubBytes:u5|current_state
+  9. State Machine - |Top|InvSubBytes:u1|current_state
+ 10. State Machine - |Top|StateMach:u10|ESTACT
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Apr 28 11:05:35 2025          ;
+; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                      ; AES_Decryption                                 ;
+; Top-level Entity Name              ; Top                                            ;
+; Family                             ; MAX 10                                         ;
+; Total logic elements               ; 7,427                                          ;
+;     Total combinational functions  ; 4,079                                          ;
+;     Dedicated logic registers      ; 4,482                                          ;
+; Total registers                    ; 4482                                           ;
+; Total pins                         ; 400                                            ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
+; UFM blocks                         ; 0                                              ;
+; ADC blocks                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF672C7G     ;                    ;
+; Top-level entity name                                            ; Top                ; AES_Decryption     ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.02        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.2%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-16        ;   0.1%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                         ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------+---------+
+; Top.vhd                          ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd           ;         ;
+; SubBytesKey.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SubBytesKey.vhd   ;         ;
+; StateMach.vhd                    ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd     ;         ;
+; Rcon.vhd                         ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Rcon.vhd          ;         ;
+; Mux2to1.vhd                      ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux2to1.vhd       ;         ;
+; KeySchedule.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd   ;         ;
+; Keyprocessor.vhd                 ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keyprocessor.vhd  ;         ;
+; Keymem.vhd                       ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keymem.vhd        ;         ;
+; InvSubBytes.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvSubBytes.vhd   ;         ;
+; InvShiftRows.vhd                 ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvShiftRows.vhd  ;         ;
+; InvMixColumns.vhd                ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvMixColumns.vhd ;         ;
+; GaloisPackage.vhd                ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/GaloisPackage.vhd ;         ;
+; AddRoundKey.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/AddRoundKey.vhd   ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 7,427     ;
+;                                             ;           ;
+; Total combinational functions               ; 4079      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 3041      ;
+;     -- 3 input functions                    ; 415       ;
+;     -- <=2 input functions                  ; 623       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 4071      ;
+;     -- arithmetic mode                      ; 8         ;
+;                                             ;           ;
+; Total registers                             ; 4482      ;
+;     -- Dedicated logic registers            ; 4482      ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 400       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; Clk~input ;
+; Maximum fan-out                             ; 4482      ;
+; Total fan-out                               ; 29547     ;
+; Average fan-out                             ; 3.16      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                   ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                  ; Entity Name   ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+---------------+--------------+
+; |Top                       ; 4079 (0)            ; 4482 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 400  ; 0            ; 0          ; |Top                                 ; Top           ; work         ;
+;    |AddRoundKey:u0|        ; 131 (131)           ; 387 (387)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|AddRoundKey:u0                  ; AddRoundKey   ; work         ;
+;    |AddRoundKey:u4|        ; 131 (131)           ; 387 (387)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|AddRoundKey:u4                  ; AddRoundKey   ; work         ;
+;    |AddRoundKey:u7|        ; 131 (131)           ; 387 (387)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|AddRoundKey:u7                  ; AddRoundKey   ; work         ;
+;    |InvMixColumns:u3|      ; 351 (351)           ; 131 (131)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|InvMixColumns:u3                ; InvMixColumns ; work         ;
+;    |InvShiftRows:u2|       ; 0 (0)               ; 129 (129)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|InvShiftRows:u2                 ; InvShiftRows  ; work         ;
+;    |InvShiftRows:u6|       ; 0 (0)               ; 129 (129)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|InvShiftRows:u6                 ; InvShiftRows  ; work         ;
+;    |InvSubBytes:u1|        ; 333 (333)           ; 264 (264)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|InvSubBytes:u1                  ; InvSubBytes   ; work         ;
+;    |InvSubBytes:u5|        ; 333 (333)           ; 264 (264)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|InvSubBytes:u5                  ; InvSubBytes   ; work         ;
+;    |KeySchedule:u9|        ; 2489 (0)            ; 2394 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|KeySchedule:u9                  ; KeySchedule   ; work         ;
+;       |Keymem:U02|         ; 1312 (1312)         ; 2048 (2048)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|KeySchedule:u9|Keymem:U02       ; Keymem        ; work         ;
+;       |Keyprocessor:U01|   ; 337 (337)           ; 346 (346)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|KeySchedule:u9|Keyprocessor:U01 ; Keyprocessor  ; work         ;
+;       |Rcon:U03|           ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|KeySchedule:u9|Rcon:U03         ; Rcon          ; work         ;
+;       |SubBytesKey:U04|    ; 832 (832)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|KeySchedule:u9|SubBytesKey:U04  ; SubBytesKey   ; work         ;
+;    |Mux2to1:u8|            ; 128 (128)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|Mux2to1:u8                      ; Mux2to1       ; work         ;
+;    |StateMach:u10|         ; 52 (52)             ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|StateMach:u10                   ; StateMach     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |Top|InvSubBytes:u5|current_state                                             ;
++--------------------------+--------------------+--------------------------+--------------------+
+; Name                     ; current_state.DONE ; current_state.PROCESSING ; current_state.IDLE ;
++--------------------------+--------------------+--------------------------+--------------------+
+; current_state.IDLE       ; 0                  ; 0                        ; 0                  ;
+; current_state.PROCESSING ; 0                  ; 1                        ; 1                  ;
+; current_state.DONE       ; 1                  ; 0                        ; 1                  ;
++--------------------------+--------------------+--------------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------+
+; State Machine - |Top|InvSubBytes:u1|current_state                                             ;
++--------------------------+--------------------+--------------------------+--------------------+
+; Name                     ; current_state.DONE ; current_state.PROCESSING ; current_state.IDLE ;
++--------------------------+--------------------+--------------------------+--------------------+
+; current_state.IDLE       ; 0                  ; 0                        ; 0                  ;
+; current_state.PROCESSING ; 0                  ; 1                        ; 1                  ;
+; current_state.DONE       ; 1                  ; 0                        ; 1                  ;
++--------------------------+--------------------+--------------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Top|StateMach:u10|ESTACT                                                                                                                       ;
++---------------+------------+-------------+---------------+---------------+-------------+--------------+---------------+---------------+-------------+-----------+
+; Name          ; ESTACT.Fin ; ESTACT.ARK3 ; ESTACT.InvSR2 ; ESTACT.InvSB2 ; ESTACT.ARK2 ; ESTACT.InvMC ; ESTACT.InvSR1 ; ESTACT.InvSB1 ; ESTACT.ARK1 ; ESTACT.KS ;
++---------------+------------+-------------+---------------+---------------+-------------+--------------+---------------+---------------+-------------+-----------+
+; ESTACT.KS     ; 0          ; 0           ; 0             ; 0             ; 0           ; 0            ; 0             ; 0             ; 0           ; 0         ;
+; ESTACT.ARK1   ; 0          ; 0           ; 0             ; 0             ; 0           ; 0            ; 0             ; 0             ; 1           ; 1         ;
+; ESTACT.InvSB1 ; 0          ; 0           ; 0             ; 0             ; 0           ; 0            ; 0             ; 1             ; 0           ; 1         ;
+; ESTACT.InvSR1 ; 0          ; 0           ; 0             ; 0             ; 0           ; 0            ; 1             ; 0             ; 0           ; 1         ;
+; ESTACT.InvMC  ; 0          ; 0           ; 0             ; 0             ; 0           ; 1            ; 0             ; 0             ; 0           ; 1         ;
+; ESTACT.ARK2   ; 0          ; 0           ; 0             ; 0             ; 1           ; 0            ; 0             ; 0             ; 0           ; 1         ;
+; ESTACT.InvSB2 ; 0          ; 0           ; 0             ; 1             ; 0           ; 0            ; 0             ; 0             ; 0           ; 1         ;
+; ESTACT.InvSR2 ; 0          ; 0           ; 1             ; 0             ; 0           ; 0            ; 0             ; 0             ; 0           ; 1         ;
+; ESTACT.ARK3   ; 0          ; 1           ; 0             ; 0             ; 0           ; 0            ; 0             ; 0             ; 0           ; 1         ;
+; ESTACT.Fin    ; 1          ; 0           ; 0             ; 0             ; 0           ; 0            ; 0             ; 0             ; 0           ; 1         ;
++---------------+------------+-------------+---------------+---------------+-------------+--------------+---------------+---------------+-------------+-----------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                     ;
++-----------------------------------------------------+--------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal      ; Free of Timing Hazards ;
++-----------------------------------------------------+--------------------------+------------------------+
+; StateMach:u10|s_SelectKey[0]                        ; StateMach:u10|Selector15 ; yes                    ;
+; StateMach:u10|s_SelectKey[1]                        ; StateMach:u10|Selector17 ; yes                    ;
+; StateMach:u10|s_SelectKey[2]                        ; StateMach:u10|Selector15 ; yes                    ;
+; StateMach:u10|s_SelectKey[3]                        ; StateMach:u10|Selector17 ; yes                    ;
+; StateMach:u10|MuxSel                                ; StateMach:u10|WideOr2    ; yes                    ;
+; StateMach:u10|SIGEST.ARK1_485                       ; StateMach:u10|Selector1  ; yes                    ;
+; StateMach:u10|SIGEST.InvSB1_466                     ; StateMach:u10|Selector1  ; yes                    ;
+; StateMach:u10|SIGEST.InvSR1_447                     ; StateMach:u10|Selector1  ; yes                    ;
+; StateMach:u10|SIGEST.InvMC_428                      ; StateMach:u10|Selector1  ; yes                    ;
+; StateMach:u10|SIGEST.ARK2_409                       ; StateMach:u10|Selector1  ; yes                    ;
+; StateMach:u10|SIGEST.InvSB2_390                     ; StateMach:u10|Selector1  ; yes                    ;
+; StateMach:u10|SIGEST.InvSR2_371                     ; StateMach:u10|Selector1  ; yes                    ;
+; StateMach:u10|SIGEST.ARK3_352                       ; StateMach:u10|Selector1  ; yes                    ;
+; StateMach:u10|SIGEST.Fin_333                        ; StateMach:u10|Selector1  ; yes                    ;
+; Number of user-specified and inferred latches = 14  ;                          ;                        ;
++-----------------------------------------------------+--------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                       ;
++----------------------------------------------+-----------------------------------------------------------+
+; Register name                                ; Reason for Removal                                        ;
++----------------------------------------------+-----------------------------------------------------------+
+; KeySchedule:u9|Keyprocessor:U01|rtemp[0..23] ; Stuck at GND due to stuck port data_in                    ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[0]     ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[0]   ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[1]     ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[1]   ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[2]     ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[2]   ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[3]     ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[3]   ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[4]     ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[4]   ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[5]     ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[5]   ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[6]     ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[6]   ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[7]     ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[7]   ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[8]     ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[8]   ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[9]     ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[9]   ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[10]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[10]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[11]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[11]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[12]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[12]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[13]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[13]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[14]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[14]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[15]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[15]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[16]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[16]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[17]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[17]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[18]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[18]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[19]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[19]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[20]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[20]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[21]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[21]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[22]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[22]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[23]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[23]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[24]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[24]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[25]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[25]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[26]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[26]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[27]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[27]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[28]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[28]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[29]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[29]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[30]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[30]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp[31]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[31]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[0]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[32]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[1]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[33]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[2]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[34]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[3]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[35]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[4]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[36]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[5]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[37]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[6]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[38]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[7]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[39]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[8]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[40]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[9]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[41]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[10]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[42]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[11]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[43]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[12]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[44]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[13]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[45]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[14]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[46]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[15]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[47]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[16]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[48]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[17]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[49]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[18]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[50]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[19]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[51]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[20]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[52]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[21]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[53]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[22]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[54]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[23]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[55]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[24]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[56]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[25]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[57]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[26]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[58]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[27]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[59]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[28]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[60]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[29]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[61]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[30]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[62]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp5[31]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[63]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[0]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[64]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[1]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[65]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[2]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[66]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[3]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[67]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[4]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[68]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[5]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[69]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[6]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[70]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[7]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[71]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[8]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[72]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[9]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[73]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[10]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[74]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[11]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[75]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[12]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[76]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[13]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[77]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[14]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[78]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[15]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[79]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[16]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[80]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[17]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[81]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[18]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[82]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[19]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[83]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[20]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[84]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[21]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[85]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[22]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[86]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[23]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[87]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[24]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[88]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[25]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[89]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[26]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[90]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[27]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[91]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[28]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[92]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[29]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[93]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[30]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[94]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp4[31]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[95]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[0]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[96]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[1]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[97]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[2]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[98]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[3]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[99]  ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[4]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[100] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[5]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[101] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[6]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[102] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[7]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[103] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[8]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[104] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[9]    ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[105] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[10]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[106] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[11]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[107] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[12]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[108] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[13]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[109] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[14]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[110] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[15]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[111] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[16]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[112] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[17]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[113] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[18]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[114] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[19]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[115] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[20]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[116] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[21]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[117] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[22]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[118] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[23]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[119] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[24]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[120] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[25]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[121] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[26]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[122] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[27]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[123] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[28]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[124] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[29]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[125] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[30]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[126] ;
+; KeySchedule:u9|Keyprocessor:U01|ktemp3[31]   ; Merged with KeySchedule:u9|Keyprocessor:U01|Data_out[127] ;
+; Total Number of Removed Registers = 152      ;                                                           ;
++----------------------------------------------+-----------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 4482  ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 940   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 4452  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; KeySchedule:u9|Keyprocessor:U01|k[0]   ; 12      ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Top|KeySchedule:u9|Keyprocessor:U01|step[3]      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Top|KeySchedule:u9|Keyprocessor:U01|ColW[0]      ;
+; 3:1                ; 128 bits  ; 256 LEs       ; 128 LEs              ; 128 LEs                ; Yes        ; |Top|KeySchedule:u9|Keyprocessor:U01|Data_out[50] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Top|KeySchedule:u9|Keyprocessor:U01|ktemp2[29]   ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |Top|InvSubBytes:u5|byte_counter[2]               ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |Top|InvSubBytes:u1|byte_counter[3]               ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |Top|InvSubBytes:u5|Mux0                          ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |Top|InvSubBytes:u1|Mux5                          ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Top|StateMach:u10|Selector13                     ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Top|InvSubBytes:u1|Selector129                   ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Top|InvSubBytes:u5|Selector129                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 400                         ;
+; cycloneiii_ff         ; 4482                        ;
+;     CLR               ; 29                          ;
+;     ENA               ; 3540                        ;
+;     ENA CLR           ; 911                         ;
+;     ENA SLD           ; 1                           ;
+;     plain             ; 1                           ;
+; cycloneiii_lcell_comb ; 4080                        ;
+;     arith             ; 8                           ;
+;         2 data inputs ; 8                           ;
+;     normal            ; 4072                        ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 609                         ;
+;         3 data inputs ; 415                         ;
+;         4 data inputs ; 3041                        ;
+;                       ;                             ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 3.06                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:13     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Mon Apr 28 11:05:14 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AES_Decryption -c AES_Decryption
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file top_tb.vhd
+    Info (12022): Found design unit 1: Top_tb-behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top_tb.vhd Line: 29
+    Info (12023): Found entity 1: Top_tb File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top_tb.vhd Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
+    Info (12022): Found design unit 1: Top-structure File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 54
+    Info (12023): Found entity 1: Top File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file subbyteskey.vhd
+    Info (12022): Found design unit 1: SubBytesKey-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SubBytesKey.vhd Line: 36
+    Info (12023): Found entity 1: SubBytesKey File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SubBytesKey.vhd Line: 30
+Info (12021): Found 2 design units, including 1 entities, in source file statemach.vhd
+    Info (12022): Found design unit 1: StateMach-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 53
+    Info (12023): Found entity 1: StateMach File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file sbox.vhd
+    Info (12022): Found design unit 1: SBox-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SBox.vhd Line: 37
+    Info (12023): Found entity 1: SBox File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SBox.vhd Line: 30
+Info (12021): Found 2 design units, including 1 entities, in source file rcon.vhd
+    Info (12022): Found design unit 1: Rcon-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Rcon.vhd Line: 36
+    Info (12023): Found entity 1: Rcon File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Rcon.vhd Line: 30
+Info (12021): Found 2 design units, including 1 entities, in source file mux2to1.vhd
+    Info (12022): Found design unit 1: Mux2to1-rtl File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux2to1.vhd Line: 40
+    Info (12023): Found entity 1: Mux2to1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux2to1.vhd Line: 26
+Warning (12090): Entity "Mux" obtained from "Mux.vhd" instead of from Quartus Prime megafunction library File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux.vhd Line: 30
+Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
+    Info (12022): Found design unit 1: Mux-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux.vhd Line: 36
+    Info (12023): Found entity 1: Mux File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux.vhd Line: 30
+Info (12021): Found 2 design units, including 1 entities, in source file keyschedule.vhd
+    Info (12022): Found design unit 1: KeySchedule-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 35
+    Info (12023): Found entity 1: KeySchedule File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 25
+Info (12021): Found 2 design units, including 1 entities, in source file keyprocessor.vhd
+    Info (12022): Found design unit 1: Keyprocessor-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keyprocessor.vhd Line: 34
+    Info (12023): Found entity 1: Keyprocessor File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keyprocessor.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file keymem.vhd
+    Info (12022): Found design unit 1: Keymem-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keymem.vhd Line: 28
+    Info (12023): Found entity 1: Keymem File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keymem.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file invsubbytes.vhd
+    Info (12022): Found design unit 1: InvSubBytes-behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvSubBytes.vhd Line: 166
+    Info (12023): Found entity 1: InvSubBytes File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvSubBytes.vhd Line: 155
+Info (12021): Found 2 design units, including 1 entities, in source file invshiftrows.vhd
+    Info (12022): Found design unit 1: InvShiftRows-rtl File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvShiftRows.vhd Line: 216
+    Info (12023): Found entity 1: InvShiftRows File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvShiftRows.vhd Line: 204
+Info (12021): Found 2 design units, including 1 entities, in source file invmixcolumns.vhd
+    Info (12022): Found design unit 1: InvMixColumns-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvMixColumns.vhd Line: 36
+    Info (12023): Found entity 1: InvMixColumns File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvMixColumns.vhd Line: 27
+Info (12021): Found 2 design units, including 0 entities, in source file galoispackage.vhd
+    Info (12022): Found design unit 1: GaloisPackage File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/GaloisPackage.vhd Line: 27
+    Info (12022): Found design unit 2: GaloisPackage-body File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/GaloisPackage.vhd Line: 37
+Info (12021): Found 2 design units, including 1 entities, in source file demux.vhd
+    Info (12022): Found design unit 1: DeMux-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/DeMux.vhd Line: 36
+    Info (12023): Found entity 1: DeMux File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/DeMux.vhd Line: 30
+Info (12021): Found 2 design units, including 1 entities, in source file addroundkey.vhd
+    Info (12022): Found design unit 1: AddRoundKey-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/AddRoundKey.vhd Line: 222
+    Info (12023): Found entity 1: AddRoundKey File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/AddRoundKey.vhd Line: 212
+Info (12127): Elaborating entity "Top" for the top level hierarchy
+Info (12128): Elaborating entity "AddRoundKey" for hierarchy "AddRoundKey:u0" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 191
+Info (12128): Elaborating entity "Mux2to1" for hierarchy "Mux2to1:u8" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 211
+Info (12128): Elaborating entity "KeySchedule" for hierarchy "KeySchedule:u9" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 218
+Info (12128): Elaborating entity "Keyprocessor" for hierarchy "KeySchedule:u9|Keyprocessor:U01" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 89
+Info (12128): Elaborating entity "Keymem" for hierarchy "KeySchedule:u9|Keymem:U02" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 104
+Info (12128): Elaborating entity "Rcon" for hierarchy "KeySchedule:u9|Rcon:U03" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 113
+Info (12128): Elaborating entity "SubBytesKey" for hierarchy "KeySchedule:u9|SubBytesKey:U04" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 118
+Info (12128): Elaborating entity "StateMach" for hierarchy "StateMach:u10" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 228
+Warning (10492): VHDL Process Statement warning at StateMach.vhd(104): signal "s_SelectKey" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 104
+Warning (10492): VHDL Process Statement warning at StateMach.vhd(115): signal "s_SelectKey" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 115
+Warning (10631): VHDL Process Statement warning at StateMach.vhd(81): inferring latch(es) for signal or variable "s_SelectKey", which holds its previous value in one or more paths through the process File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Warning (10631): VHDL Process Statement warning at StateMach.vhd(81): inferring latch(es) for signal or variable "SIGEST", which holds its previous value in one or more paths through the process File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Warning (10631): VHDL Process Statement warning at StateMach.vhd(81): inferring latch(es) for signal or variable "MuxSel", which holds its previous value in one or more paths through the process File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "MuxSel" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "SIGEST.Fin" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "SIGEST.ARK3" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "SIGEST.InvSR2" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "SIGEST.InvSB2" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "SIGEST.ARK2" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "SIGEST.InvMC" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "SIGEST.InvSR1" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "SIGEST.InvSB1" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "SIGEST.ARK1" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "SIGEST.KS" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "s_SelectKey[0]" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "s_SelectKey[1]" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "s_SelectKey[2]" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (10041): Inferred latch for "s_SelectKey[3]" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+Info (12128): Elaborating entity "InvSubBytes" for hierarchy "InvSubBytes:u1" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 253
+Info (12128): Elaborating entity "InvShiftRows" for hierarchy "InvShiftRows:u2" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 262
+Info (12128): Elaborating entity "InvMixColumns" for hierarchy "InvMixColumns:u3" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 271
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "KeySchedule:u9|Keymem:U02|KEYs" is uninferred due to asynchronous read logic File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keymem.vhd Line: 31
+Warning (13012): Latch StateMach:u10|s_SelectKey[0] has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|s_SelectKey[1] has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK3 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|s_SelectKey[2] has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|s_SelectKey[3] has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK3 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|MuxSel has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 40
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvMC File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|SIGEST.ARK1_485 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.KS File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|SIGEST.InvSB1_466 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSR1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|SIGEST.InvSR1_447 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|SIGEST.InvMC_428 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK2 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|SIGEST.ARK2_409 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|SIGEST.InvSB2_390 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSR2 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|SIGEST.InvSR2_371 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvMC File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|SIGEST.ARK3_352 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB2 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Warning (13012): Latch StateMach:u10|SIGEST.Fin_333 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK3 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
+Info (13000): Registers with preset signals will power-up high File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keyprocessor.vhd Line: 57
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 7980 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 258 input pins
+    Info (21059): Implemented 142 output pins
+    Info (21061): Implemented 7580 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 35 warnings
+    Info: Peak virtual memory: 4966 megabytes
+    Info: Processing ended: Mon Apr 28 11:05:35 2025
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:31
+
+

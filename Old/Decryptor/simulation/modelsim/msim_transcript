@@ -1,0 +1,160 @@
+# Reading pref.tcl
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2021.2 win64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do AES_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Questa Intel Starter FPGA Edition-64 vmap 2021.2 Lib Mapping Utility 2021.04 Apr 14 2021
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/21.1/questa_fse/win64/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:02:20 on Apr 21,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/ferna/Documents/TE2002B/Decryptor/Top.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Top
+# -- Compiling architecture structure of Top
+# End time: 11:02:20 on Apr 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ferna/Documents/TE2002B/Decryptor/SubBytes.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:02:20 on Apr 21,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/ferna/Documents/TE2002B/Decryptor/SubBytes.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity SubBytes
+# -- Compiling architecture behavioral of SubBytes
+# End time: 11:02:20 on Apr 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ferna/Documents/TE2002B/Decryptor/StateMach.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:02:20 on Apr 21,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/ferna/Documents/TE2002B/Decryptor/StateMach.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity StateMach
+# -- Compiling architecture rtl of StateMach
+# End time: 11:02:20 on Apr 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ferna/Documents/TE2002B/Decryptor/ShiftRows.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:02:20 on Apr 21,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/ferna/Documents/TE2002B/Decryptor/ShiftRows.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ShiftRows
+# -- Compiling architecture rtl of ShiftRows
+# End time: 11:02:21 on Apr 21,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ferna/Documents/TE2002B/Decryptor/Mux2to1.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:02:21 on Apr 21,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/ferna/Documents/TE2002B/Decryptor/Mux2to1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Mux2to1
+# -- Compiling architecture rtl of Mux2to1
+# End time: 11:02:21 on Apr 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ferna/Documents/TE2002B/Decryptor/MixColumns.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:02:21 on Apr 21,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/ferna/Documents/TE2002B/Decryptor/MixColumns.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MixColumns
+# -- Compiling architecture rtl of MixColumns
+# End time: 11:02:21 on Apr 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ferna/Documents/TE2002B/Decryptor/KeySchedule.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:02:21 on Apr 21,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/ferna/Documents/TE2002B/Decryptor/KeySchedule.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity KeySchedule
+# -- Compiling architecture rtl of KeySchedule
+# End time: 11:02:21 on Apr 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ferna/Documents/TE2002B/Decryptor/CyperKey.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:02:21 on Apr 21,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/ferna/Documents/TE2002B/Decryptor/CyperKey.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity CyperKey
+# -- Compiling architecture rtl of CyperKey
+# End time: 11:02:21 on Apr 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ferna/Documents/TE2002B/Decryptor/AddRoundKey.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:02:21 on Apr 21,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/ferna/Documents/TE2002B/Decryptor/AddRoundKey.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity AddRoundKey
+# -- Compiling architecture rtl of AddRoundKey
+# End time: 11:02:21 on Apr 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {C:/Users/ferna/Documents/TE2002B/Decryptor/SubBytes_tb.vhd}
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 11:02:21 on Apr 21,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/ferna/Documents/TE2002B/Decryptor/SubBytes_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity SubBytes_tb
+# -- Compiling architecture behavior of SubBytes_tb
+# End time: 11:02:21 on Apr 21,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  SubBytes_tb
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" SubBytes_tb 
+# Start time: 11:02:21 on Apr 21,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in architecture body "SubBytes(behavioral)".
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.subbytes_tb(behavior)#1
+# Loading work.subbytes(behavioral)#1
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 8000 us
+# End time: 12:44:43 on Apr 21,2025, Elapsed time: 1:42:22
+# Errors: 0, Warnings: 0

@@ -1,0 +1,82 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date:    04:05:46 05/06/2009 
+-- Design Name: 
+-- Module Name:    Top - Behavioral 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use work.GaloisPackage.ALL;
+
+entity MixColumns is
+    Port ( Rst          : in  STD_LOGIC:='0';
+			  Clk          : in  STD_LOGIC;
+			  Enable       : in  STD_LOGIC;
+			  TxtIn 			: in  STD_LOGIC_VECTOR (127 downto 0);
+			  Finish       : out STD_LOGIC;
+           TxtOut   : out STD_LOGIC_VECTOR (127 downto 0));
+end MixColumns;
+
+architecture Behavioral of MixColumns is
+
+
+	--signal Aux : STD_LOGIC_VECTOR(7 downto 0);
+	--signal Aux2 : STD_LOGIC_VECTOR(7 downto 0);
+	signal Aux2 : STD_LOGIC_VECTOR(127 downto 0);
+	signal Faux : STD_LOGIC;
+	signal Flag: STD_LOGIC := '0';
+begin
+	
+	--Aux <= "00000011";
+	
+	process(Clk,Rst,Enable)
+	begin
+		
+		if Rst = '1' then
+			Aux2 <= (others => '0');
+		else if Enable = '1' then
+					if rising_edge(Clk) then
+						Aux2 <= MixColumn(TxtIn);
+					end if;
+			  end if;
+		end if;
+	end process;
+	
+	process(Rst,Clk,Enable)
+    
+	variable cta : STD_LOGIC_VECTOR (1 downto 0):="00";
+	begin
+		if Rst = '1' then
+			cta := "00";
+		elsif rising_edge(Clk) then
+			if Enable = '1' then
+				cta := cta + 1;
+				if cta = "10" then --2do. clock
+					Flag <= '1';
+				end if;
+			end if;
+			if Flag = '1' then
+				Flag<='0';
+			end if;
+		end if;
+	end process;
+	TxtOut <= Aux2;		
+	Finish <= Flag;
+	
+end Behavioral;
+

@@ -308,6 +308,8 @@ begin
 --  u11: CypherKey
 --    port map(
 --      KeyOut => u11_KeyOut);
+
+
 		oKeySel          <=	SelKey;
 		oKeyEn           <= 	EnKeySch;
 		oAddRoundu0En    <= 	EnARK1;
@@ -319,4 +321,6 @@ begin
 		oShiftRowsu6En   <=	EnISR2;
 		oAddRoundu7En    <=	EnARK3;
       oMuxSel          <=	SelMux;
+
 end architecture structure ; -- of Top
+

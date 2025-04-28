@@ -1,0 +1,107 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date:    17:12:44 05/02/2009 
+-- Design Name: 
+-- Module Name:    SubBytes - Behavioral 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+---- Uncomment the following library declaration if instantiating
+---- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity SubBytes is
+    Port ( TxtIn 	: in  	STD_LOGIC_VECTOR (127 downto 0);
+			  Clk			: in		STD_LOGIC;
+			  Enable			: in		STD_LOGIC;
+			  Rst			: in		STD_LOGIC;
+           TxtOut 	: out  	STD_LOGIC_VECTOR (127 downto 0);
+			  Finish		: out		STD_LOGIC := '0');
+end SubBytes;
+
+architecture Behavioral of SubBytes is
+
+component SBox
+port(
+	Addr		: in	STD_LOGIC_VECTOR(7 downto 0);
+	DataOut	: out	STD_LOGIC_VECTOR(7 downto 0));
+end component;
+
+component Mux
+port(
+	A		: in	STD_LOGIC_VECTOR(127 downto 0);
+	Sel	: in	STD_LOGIC_VECTOR(4 downto 0);
+	B		: out	STD_LOGIC_VECTOR(7 downto 0));
+end component;
+
+component DeMux
+port(
+	A		: in	STD_LOGIC_VECTOR(7 downto 0);
+	Sel	: in	STD_LOGIC_VECTOR(4 downto 0);
+	B		: out	STD_LOGIC_VECTOR(127 downto 0));
+end component;
+
+--signal declaration
+signal i0		: std_logic_vector(7 downto 0);
+signal o0		: std_logic_vector(7 downto 0);
+signal temp		: std_logic_vector(4 downto 0);
+signal temp2	: std_logic := '0';
+
+begin
+
+C01: Mux
+port map(
+	A	 	=> TxtIn(127 downto 0),
+	Sel	=> temp,
+	B		=> i0);
+
+C02: SBox
+port map(
+	Addr		=> i0,
+	DataOut	=> o0);
+
+C03: DeMux
+port map(
+	A		=> o0,
+	Sel	=> temp,
+	B		=> TxtOut(127 downto 0));
+	
+process(Clk,Enable,Rst)
+begin
+	if(Enable = '0' OR Rst = '1') then
+		temp <= "00000";
+		if(rising_edge(Clk)) then
+			if(temp2 = '1') then
+				Finish <= '1';
+				temp2 <= '0';
+			else
+				Finish <= '0';
+			end if;
+		end if;
+	elsif(rising_edge(Clk)) then
+		temp <= temp + 1;
+		if(temp = "10000")then
+			temp2 <= '1';
+		end if;
+	end if;
+end process;
+
+end Behavioral;
+

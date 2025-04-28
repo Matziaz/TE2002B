@@ -1,0 +1,154 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date:    21:08:58 05/12/2009 
+-- Design Name: 
+-- Module Name:    state_machine - Behavioral 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+
+entity StateMach is
+    port(
+      AddRoundu0En    : out    std_logic;
+      AddRoundu0Fin   : in     std_logic;
+      AddRoundu4En    : out    std_logic;
+      AddRoundu4Fin   : in     std_logic;
+      AddRoundu7En    : out    std_logic;
+      AddRoundu7Fin   : in     std_logic;
+      Clk                : in     std_logic;
+      KeyEn              : out    std_logic;
+      KeyFin             : in     std_logic;
+      KeySel             : out    std_logic_vector(3 downto 0);
+      InvMixColumnsu3En  : out    std_logic;
+      InvMixColumnsu3Fin : in     std_logic;
+      MuxSel             : out    std_logic;
+      Rst                : in     std_logic;
+      InvShiftRowsu2En   : out    std_logic;
+      InvShiftRowsu2Fin  : in     std_logic;
+      InvShiftRowsu6En   : out    std_logic;
+      InvShiftRowsu6Fin  : in     std_logic;
+      InvSubBytesu1En    : out    std_logic;
+      InvSubBytesu1Fin   : in     std_logic;
+      InvSubBytesu5En    : out    std_logic;
+      InvSubBytesu5Fin   : in     std_logic);
+
+  end StateMach;
+
+architecture Behavioral of StateMach is
+
+type ESTADOS is (KS, ARK1, InvSB1, InvSR1, InvMC, ARK2, InvSB2, InvSR2, ARK3); 
+
+signal ESTACT, SIGEST: ESTADOS; 
+signal s_SelectKey   : STD_LOGIC_VECTOR(3 downto 0);
+signal Finish        : STD_LOGIC_VECTOR(8 downto 0); 
+signal Enable        : STD_LOGIC_VECTOR(8 downto 0); 
+
+-- ARK3 & SR2 & SB2 &ARK2 & MC & SR1 & SB1 & ARK1 & KS
+--  b8    b7    b6    b5    b4    b3    b2    b1    b0    
+   
+	
+begin
+
+Finish <= AddRoundu7Fin & InvShiftRowsu6Fin & InvSubBytesu5Fin & AddRoundu4Fin & InvMixColumnsu3Fin
+          & InvShiftRowsu2Fin & InvSubBytesu1Fin & AddRoundu0Fin & KeyFin;
+
+
+	SIGUIENTE : process (Clk, Rst) 	
+   begin 
+        if (Rst = '1') then 
+            ESTACT <= KS; 				
+        elsif (rising_edge(Clk)) then 
+            ESTACT <= SIGEST; 
+        end if; 
+    end process;                        --End REG_PROC 
+
+    CUALSIG: process (ESTACT, Finish) 
+    begin 
+        case ESTACT is 
+            when KS => 
+					 s_SelectKey <= "1010";
+					 Enable    <= "000000001"; 
+				    if(Finish = "000000001") then
+						SIGEST <= ARK1;
+                end if;						
+            when ARK1 => 
+					 Enable    <= "000000010"; 
+                MuxSel    <= '0';
+				    if(Finish = "000000010") then
+						SIGEST <= InvSR1;
+                end if;						
+            when InvSR1 => 
+					 Enable    <= "000001000"; 
+				    if(Finish = "000001000") then
+						SIGEST <= InvSB1;
+                end if;						
+            when InvSB1 =>   
+					 Enable    <= "000000100"; 
+				    if(Finish = "000000100") then
+						s_SelectKey <= s_SelectKey - 1;
+						SIGEST <= ARK2;
+                end if;						
+				when ARK2 => 
+					 Enable    <= "000100000";					 
+				    if(Finish = "000100000") then
+						SIGEST <= InvMC;
+                end if;						
+            when InvMC => 
+					 Enable    <= "000010000";  
+                MuxSel    <= '1';
+				    if(s_SelectKey = "0001" and Finish = "000010000") then
+						SIGEST <= InvSR2;
+					 elsif(Finish = "000010000") then
+						SIGEST <= InvSR1;
+                end if;						
+            when invSR2 => 
+					 Enable    <= "010000000";  
+				    if(Finish = "010000000") then
+						SIGEST <= invSB2;
+                end if;						
+            when invSB2 => 
+					 Enable    <= "001000000";
+                s_SelectKey <= "0000";					 
+				    if(Finish = "001000000") then
+						SIGEST <= ARK3;
+                end if;						
+            when ARK3 => 
+					 Enable    <= "100000000"; 					 
+				    if(Finish = "100000000") then
+						SIGEST <= ARK1;
+						s_SelectKey <= "1010"; 
+                end if;						
+        end case; 
+	end process;
+
+	KeySel <= s_SelectKey;
+	
+   KeyEn             <= Enable(0);
+   AddRoundu0En   	<= Enable(1);
+   InvSubBytesu1En	<= Enable(2);
+   InvShiftRowsu2En	<= Enable(3);
+   InvMixColumnsu3En <= Enable(4);
+   AddRoundu4En	   <= Enable(5);
+   InvSubBytesu5En   <= Enable(6);
+   InvShiftRowsu6En  <= Enable(7);
+   AddRoundu7En      <= Enable(8);
+	
+end Behavioral;
+
+

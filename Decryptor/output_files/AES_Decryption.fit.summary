@@ -1,0 +1,18 @@
+Fitter Status : Successful - Mon Apr 28 11:06:56 2025
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : AES_Decryption
+Top-level Entity Name : Top
+Family : MAX 10
+Device : 10M50DAF672C7G
+Timing Models : Final
+Total logic elements : 6,282 / 49,760 ( 13 % )
+    Total combinational functions : 4,081 / 49,760 ( 8 % )
+    Dedicated logic registers : 4,482 / 49,760 ( 9 % )
+Total registers : 4482
+Total pins : 400 / 500 ( 80 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

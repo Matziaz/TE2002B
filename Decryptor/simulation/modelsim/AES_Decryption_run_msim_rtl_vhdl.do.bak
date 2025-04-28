@@ -1,0 +1,32 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/Top.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/SubBytesKey.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/StateMach.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/SBox.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/Rcon.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/Mux2to1.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/Mux.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/KeySchedule.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/Keyprocessor.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/Keymem.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/InvSubBytes.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/InvShiftRows.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/GaloisPackage.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/DeMux.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/AddRoundKey.vhd}
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/InvMixColumns.vhd}
+
+vcom -93 -work work {C:/D/ProyQuartus/P19_AES_Decryption_tb/Top_tb.vhd}
+
+vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  Top_tb
+
+add wave *
+view structure
+view signals
+run 2000 ns
