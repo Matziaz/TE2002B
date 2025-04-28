@@ -21,245 +21,195 @@
 
 
 library ieee;
+use ieee.numeric_std.all;
 use ieee.std_logic_1164.all;
 
 entity StateMach is
   port (
-    KeyEn           : out std_logic;
-    KeyFin          : in  std_logic;
-    KeySel          : out std_logic_vector(3 downto 0);
-    AddRoundEn      : out std_logic;
-    AddRoundFin     : in  std_logic;
-    InvShiftRowsEn  : out std_logic;
-    InvShiftRowsFin : in  std_logic;
-    InvSubBytesEn   : out std_logic;
-    InvSubBytesFin  : in  std_logic;
-    InvMixColumnsEn : out std_logic;
-    InvMixColumnsFin: in  std_logic;
-    Clk             : in  std_logic;
-    Rst             : in  std_logic
+    -- Key schedule
+    KeyEn      : out std_logic;
+    KeyFin     : in  std_logic;
+    KeySel     : out std_logic_vector(3 downto 0);
+
+    -- AddRoundKey instances
+    AddRoundu0En  : out std_logic;  -- initial round
+    AddRoundu0Fin : in  std_logic;
+    AddRoundu4En  : out std_logic;  -- full rounds
+    AddRoundu4Fin : in  std_logic;
+    AddRoundu7En  : out std_logic;  -- final round
+    AddRoundu7Fin : in  std_logic;
+
+    -- Inverse ShiftRows instances
+    InvShiftRowsu2En  : out std_logic;
+    InvShiftRowsu2Fin : in  std_logic;
+    InvShiftRowsu6En  : out std_logic;
+    InvShiftRowsu6Fin : in  std_logic;
+
+    -- Inverse SubBytes instances
+    InvSubBytesu1En  : out std_logic;
+    InvSubBytesu1Fin : in  std_logic;
+    InvSubBytesu5En  : out std_logic;
+    InvSubBytesu5Fin : in  std_logic;
+
+    -- Inverse MixColumns instance
+    InvMixColumnsu3En  : out std_logic;
+    InvMixColumnsu3Fin : in  std_logic;
+
+    -- Mux select
+    MuxSel : out std_logic;
+
+    -- Clock and reset
+    Clk : in std_logic;
+    Rst : in std_logic
   );
-end entity StateMach;
+end entity;
 
 architecture rtl of StateMach is
 
   type state_t is (
-    IDLE,
-    KEY_EXP,
-    INIT_ADD,
-    -- Rondas 1 a 9
-    R1_SHIFT, R1_SUB, R1_ADD, R1_MIX,
-    R2_SHIFT, R2_SUB, R2_ADD, R2_MIX,
-    R3_SHIFT, R3_SUB, R3_ADD, R3_MIX,
-    R4_SHIFT, R4_SUB, R4_ADD, R4_MIX,
-    R5_SHIFT, R5_SUB, R5_ADD, R5_MIX,
-    R6_SHIFT, R6_SUB, R6_ADD, R6_MIX,
-    R7_SHIFT, R7_SUB, R7_ADD, R7_MIX,
-    R8_SHIFT, R8_SUB, R8_ADD, R8_MIX,
-    R9_SHIFT, R9_SUB, R9_ADD, R9_MIX,
-    -- Final Round
-    FINAL_SHIFT,
-    FINAL_SUB,
-    FINAL_ADD,
+    IDLE, KEY_EXP, ADD0,
+    ROUNDS_START, SR, SB, ADD, MC,
+    FINAL_SR, FINAL_SB, FINAL_ADD,
     DONE
   );
+
   signal state, next_state : state_t;
+  signal round_counter : integer range 0 to 9;
 
 begin
 
-  --------------------------------------------------------------------------
-  -- Registro de estado
-  --------------------------------------------------------------------------
+  -- State register
   process(Clk, Rst)
   begin
     if Rst = '1' then
       state <= IDLE;
+      round_counter <= 0;
     elsif rising_edge(Clk) then
       state <= next_state;
+      if state = ADD then
+        if round_counter < 8 and AddRoundu4Fin = '1' then
+          round_counter <= round_counter + 1;
+        end if;
+      elsif state = FINAL_ADD and AddRoundu7Fin = '1' then
+        round_counter <= 0;
+      end if;
     end if;
   end process;
 
-  --------------------------------------------------------------------------
-  -- Lógica del siguiente estado (combinacional)
-  --------------------------------------------------------------------------
-  process(state,
-          KeyFin, AddRoundFin,
-          InvShiftRowsFin, InvSubBytesFin, InvMixColumnsFin)
-    variable v_next : state_t;
+  -- Next state logic
+  process(state, KeyFin, AddRoundu0Fin, 
+          InvShiftRowsu2Fin, InvSubBytesu1Fin,
+          InvMixColumnsu3Fin, AddRoundu4Fin,
+          InvShiftRowsu6Fin, InvSubBytesu5Fin,
+          AddRoundu7Fin, round_counter)
   begin
-    -- Inicializo variable con el estado actual
-    v_next := state;
-
+    next_state <= state;
     case state is
+
       when IDLE =>
-        v_next := KEY_EXP;
+        next_state <= KEY_EXP;
 
       when KEY_EXP =>
         if KeyFin = '1' then
-          v_next := INIT_ADD;
+          next_state <= ADD0;
         end if;
 
-      when INIT_ADD =>
-        if AddRoundFin = '1' then
-          v_next := R1_SHIFT;
+      when ADD0 =>
+        if AddRoundu0Fin = '1' then
+          next_state <= ROUNDS_START;
         end if;
 
-      -- Ronda 1
-      when R1_SHIFT =>
-        if InvShiftRowsFin = '1' then v_next := R1_SUB; end if;
-      when R1_SUB =>
-        if InvSubBytesFin = '1' then v_next := R1_ADD; end if;
-      when R1_ADD =>
-        if AddRoundFin = '1' then v_next := R1_MIX; end if;
-      when R1_MIX =>
-        if InvMixColumnsFin = '1' then v_next := R2_SHIFT; end if;
+      when ROUNDS_START =>
+        next_state <= SR;
 
-      -- Ronda 2
-      when R2_SHIFT =>
-        if InvShiftRowsFin = '1' then v_next := R2_SUB; end if;
-      when R2_SUB =>
-        if InvSubBytesFin = '1' then v_next := R2_ADD; end if;
-      when R2_ADD =>
-        if AddRoundFin = '1' then v_next := R2_MIX; end if;
-      when R2_MIX =>
-        if InvMixColumnsFin = '1' then v_next := R3_SHIFT; end if;
+      when SR =>
+        if InvShiftRowsu2Fin = '1' then
+          next_state <= SB;
+        end if;
 
-      -- Ronda 3
-      when R3_SHIFT =>
-        if InvShiftRowsFin = '1' then v_next := R3_SUB; end if;
-      when R3_SUB =>
-        if InvSubBytesFin = '1' then v_next := R3_ADD; end if;
-      when R3_ADD =>
-        if AddRoundFin = '1' then v_next := R3_MIX; end if;
-      when R3_MIX =>
-        if InvMixColumnsFin = '1' then v_next := R4_SHIFT; end if;
+      when SB =>
+        if InvSubBytesu1Fin = '1' then
+          next_state <= ADD;
+        end if;
 
-      -- Ronda 4
-      when R4_SHIFT =>
-        if InvShiftRowsFin = '1' then v_next := R4_SUB; end if;
-      when R4_SUB =>
-        if InvSubBytesFin = '1' then v_next := R4_ADD; end if;
-      when R4_ADD =>
-        if AddRoundFin = '1' then v_next := R4_MIX; end if;
-      when R4_MIX =>
-        if InvMixColumnsFin = '1' then v_next := R5_SHIFT; end if;
+      when ADD =>
+        if AddRoundu4Fin = '1' then
+          if round_counter = 8 then
+            next_state <= FINAL_SR;
+          else
+            next_state <= MC;
+          end if;
+        end if;
 
-      -- Ronda 5
-      when R5_SHIFT =>
-        if InvShiftRowsFin = '1' then v_next := R5_SUB; end if;
-      when R5_SUB =>
-        if InvSubBytesFin = '1' then v_next := R5_ADD; end if;
-      when R5_ADD =>
-        if AddRoundFin = '1' then v_next := R5_MIX; end if;
-      when R5_MIX =>
-        if InvMixColumnsFin = '1' then v_next := R6_SHIFT; end if;
+      when MC =>
+        if InvMixColumnsu3Fin = '1' then
+          next_state <= SR;
+        end if;
 
-      -- Ronda 6
-      when R6_SHIFT =>
-        if InvShiftRowsFin = '1' then v_next := R6_SUB; end if;
-      when R6_SUB =>
-        if InvSubBytesFin = '1' then v_next := R6_ADD; end if;
-      when R6_ADD =>
-        if AddRoundFin = '1' then v_next := R6_MIX; end if;
-      when R6_MIX =>
-        if InvMixColumnsFin = '1' then v_next := R7_SHIFT; end if;
+      when FINAL_SR =>
+        if InvShiftRowsu6Fin = '1' then
+          next_state <= FINAL_SB;
+        end if;
 
-      -- Ronda 7
-      when R7_SHIFT =>
-        if InvShiftRowsFin = '1' then v_next := R7_SUB; end if;
-      when R7_SUB =>
-        if InvSubBytesFin = '1' then v_next := R7_ADD; end if;
-      when R7_ADD =>
-        if AddRoundFin = '1' then v_next := R7_MIX; end if;
-      when R7_MIX =>
-        if InvMixColumnsFin = '1' then v_next := R8_SHIFT; end if;
+      when FINAL_SB =>
+        if InvSubBytesu5Fin = '1' then
+          next_state <= FINAL_ADD;
+        end if;
 
-      -- Ronda 8
-      when R8_SHIFT =>
-        if InvShiftRowsFin = '1' then v_next := R8_SUB; end if;
-      when R8_SUB =>
-        if InvSubBytesFin = '1' then v_next := R8_ADD; end if;
-      when R8_ADD =>
-        if AddRoundFin = '1' then v_next := R8_MIX; end if;
-      when R8_MIX =>
-        if InvMixColumnsFin = '1' then v_next := R9_SHIFT; end if;
-
-      -- Ronda 9
-      when R9_SHIFT =>
-        if InvShiftRowsFin = '1' then v_next := R9_SUB; end if;
-      when R9_SUB =>
-        if InvSubBytesFin = '1' then v_next := R9_ADD; end if;
-      when R9_ADD =>
-        if AddRoundFin = '1' then v_next := R9_MIX; end if;
-      when R9_MIX =>
-        if InvMixColumnsFin = '1' then v_next := FINAL_SHIFT; end if;
-
-      -- Final Round (sin MixColumns)
-      when FINAL_SHIFT =>
-        if InvShiftRowsFin = '1' then v_next := FINAL_SUB; end if;
-      when FINAL_SUB =>
-        if InvSubBytesFin = '1' then v_next := FINAL_ADD; end if;
       when FINAL_ADD =>
-        if AddRoundFin = '1' then v_next := DONE; end if;
+        if AddRoundu7Fin = '1' then
+          next_state <= DONE;
+        end if;
 
       when DONE =>
-        v_next := DONE;
+        next_state <= DONE;
 
       when others =>
-        v_next := IDLE;
-    end case;
+        next_state <= IDLE;
 
-    next_state <= v_next;
+    end case;
   end process;
 
-  --------------------------------------------------------------------------
-  -- Señales de control de módulos (outputs)
-  --------------------------------------------------------------------------
-  -- Habilita cada módulo en el estado correspondiente
-  with state select
-    KeyEn <= '1' when KEY_EXP,
-             '0' when others;
+  -- Output enables
 
-  with state select
-    AddRoundEn <= '1' when INIT_ADD |
-                         R1_ADD | R2_ADD | R3_ADD | R4_ADD |
-                         R5_ADD | R6_ADD | R7_ADD | R8_ADD | R9_ADD |
-                         FINAL_ADD,
-                 '0' when others;
+  -- Key Expansion
+  KeyEn <= '1' when state = KEY_EXP else '0';
 
-  with state select
-    InvShiftRowsEn <= '1' when R1_SHIFT | R2_SHIFT | R3_SHIFT | R4_SHIFT |
-                                R5_SHIFT | R6_SHIFT | R7_SHIFT | R8_SHIFT |
-                                R9_SHIFT | FINAL_SHIFT,
-                     '0' when others;
+  -- AddRoundKey inicial (u0)
+  AddRoundu0En <= '1' when state = ADD0 else '0';
 
-  with state select
-    InvSubBytesEn <= '1' when R1_SUB   | R2_SUB   | R3_SUB   | R4_SUB   |
-                               R5_SUB   | R6_SUB   | R7_SUB   | R8_SUB   |
-                               R9_SUB   | FINAL_SUB,
-                    '0' when others;
+  -- AddRoundKey durante rondas (u4)
+  AddRoundu4En <= '1' when state = ADD else '0';
 
-  with state select
-    InvMixColumnsEn <= '1' when R1_MIX | R2_MIX | R3_MIX | R4_MIX |
-                                   R5_MIX | R6_MIX | R7_MIX | R8_MIX |
-                                   R9_MIX,
-                     '0' when others;
+  -- AddRoundKey final (u7)
+  AddRoundu7En <= '1' when state = FINAL_ADD else '0';
 
-  --------------------------------------------------------------------------
-  -- Selección de la clave de ronda (4 bits)
-  --------------------------------------------------------------------------
+  -- InvShiftRows para rondas
+  InvShiftRowsu2En <= '1' when state = SR else '0';
+
+  -- InvSubBytes para rondas
+  InvSubBytesu1En <= '1' when state = SB else '0';
+
+  -- InvMixColumns para rondas
+  InvMixColumnsu3En <= '1' when state = MC else '0';
+
+  -- InvShiftRows para ronda final
+  InvShiftRowsu6En <= '1' when state = FINAL_SR else '0';
+
+  -- InvSubBytes para ronda final
+  InvSubBytesu5En <= '1' when state = FINAL_SB else '0';
+
+  -- Mux select: '0' en rondas normales, '1' en final
+  MuxSel <= '0' when state = SR or state = SB or state = ADD or state = MC else
+            '1' when state = FINAL_SR or state = FINAL_SB or state = FINAL_ADD else
+            '0';
+
+  -- KeySel: para seleccionar la subclave adecuada
   with state select
-    KeySel <= "0000" when KEY_EXP | INIT_ADD,
-              "0001" when R1_SHIFT | R1_SUB | R1_ADD | R1_MIX,
-              "0010" when R2_SHIFT | R2_SUB | R2_ADD | R2_MIX,
-              "0011" when R3_SHIFT | R3_SUB | R3_ADD | R3_MIX,
-              "0100" when R4_SHIFT | R4_SUB | R4_ADD | R4_MIX,
-              "0101" when R5_SHIFT | R5_SUB | R5_ADD | R5_MIX,
-              "0110" when R6_SHIFT | R6_SUB | R6_ADD | R6_MIX,
-              "0111" when R7_SHIFT | R7_SUB | R7_ADD | R7_MIX,
-              "1000" when R8_SHIFT | R8_SUB | R8_ADD | R8_MIX,
-              "1001" when R9_SHIFT | R9_SUB | R9_ADD | R9_MIX,
-              "1010" when FINAL_SHIFT | FINAL_SUB | FINAL_ADD,
-              "0000" when others;
+    KeySel <=
+      "0000" when KEY_EXP | ADD0,
+      std_logic_vector(to_unsigned(round_counter + 1, 4)) when SR | SB | ADD | MC,
+      "1010" when FINAL_SR | FINAL_SB | FINAL_ADD,
+      "0000" when others;
 
 end architecture rtl;
