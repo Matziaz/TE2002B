@@ -16,10 +16,10 @@ use ieee.numeric_std.all;
 --Puertos de Entrada y de Salida
 entity MixColumns is
   port (
-    Clk    : in     std_logic;  -- Señal de Reloj
-    Enable : in     std_logic;  -- Habilita el funcionamiento
-    Finish : out    std_logic;  -- Indica fin de funcionamiento
-    Rst    : in     std_logic;  -- Señal de rest  
+    Clk    : in     std_logic;  	              -- Señal de Reloj
+    Enable : in     std_logic; 		              -- Habilita el funcionamiento
+    Finish : out    std_logic;                        -- Indica fin de funcionamiento
+    Rst    : in     std_logic;  		      -- Señal de rest  
     TxtIn  : in     std_logic_vector(127 downto 0);   --Texto de entrada de datos de 128 bits
     TxtOut : out    std_logic_vector(127 downto 0));  --Texto de salida de datos de 128 bits
 end entity MixColumns;
@@ -43,7 +43,7 @@ architecture rtl of MixColumns is
 											x"A0",x"A2",x"A4",x"A6",x"A8",x"AA",x"AC",x"AE",x"B0",x"B2",x"B4",x"B6",x"B8",x"BA",x"BC",x"BE",
 											x"C0",x"C2",x"C4",x"C6",x"C8",x"CA",x"CC",x"CE",x"D0",x"D2",x"D4",x"D6",x"D8",x"DA",x"DC",x"DE",
 											x"E0",x"E2",x"E4",x"E6",x"E8",x"EA",x"EC",x"EE",x"F0",x"F2",x"F4",x"F6",x"F8",x"FA",x"FC",x"FE",
-			--Se aplica el módulo del polinomio irreducibe  		x"1B",x"19",x"1F",x"1D",x"13",x"11",x"17",x"15",x"0B",x"09",x"0F",x"0D",x"03",x"01",x"07",x"05",
+			  								x"1B",x"19",x"1F",x"1D",x"13",x"11",x"17",x"15",x"0B",x"09",x"0F",x"0D",x"03",x"01",x"07",x"05", --Se aplica el módulo del polinomio irreducibe  
 											x"3B",x"39",x"3F",x"3D",x"33",x"31",x"37",x"35",x"2B",x"29",x"2F",x"2D",x"23",x"21",x"27",x"25",
 											x"5B",x"59",x"5F",x"5D",x"53",x"51",x"57",x"55",x"4B",x"49",x"4F",x"4D",x"43",x"41",x"47",x"45",
 											x"7B",x"79",x"7F",x"7D",x"73",x"71",x"77",x"75",x"6B",x"69",x"6F",x"6D",x"63",x"61",x"67",x"65",
