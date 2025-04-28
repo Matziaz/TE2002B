@@ -119,7 +119,7 @@ architecture rtl of MixColumns is
 		return CypherTxt; 
 	end Mix;
     
-   --Máquina de estados
+--Máquina de estados
 signal state_reg : STD_LOGIC_VECTOR (127 downto 0);  
 signal process_done: STD_LOGIC := '0';               
 type state_type is (idle, processing, finished);  
