@@ -1,32 +1,17 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineers:      Obiel y equipo 
--- 
--- Create Date:    12:08:56 05/04/2009 
--- Design Name: 
--- Module Name:    AddRoundKey - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
+-- Company:		ITESM - IRS 2025
+-- Author:           	Emiliano Camacho, Obiel Rangel, Evan Santana, Alfredo Soto 
+-- Create Date: 	22/04/2025
+-- Design Name: 	Add Round Key
+-- Module Name:		Add Round Key Module
+-- Target Devices: 	DE10-Lite
+-- Description: 	Add Round Key AES - Module
 ----------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
-
----- Uncomment the following library declaration if instantiating
----- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity AddRoundKey is
     Port ( TxtIn		  	: in  STD_LOGIC_VECTOR (127 downto 0);
@@ -42,12 +27,10 @@ architecture Behavioral of AddRoundKey is
 
 	signal cipher : STD_LOGIC_VECTOR (127 downto 0);
 	signal round : STD_LOGIC_VECTOR (127 downto 0);
-	--signal finishe : STD_LOGIC:='0';
 	
 	type tipo_SRAM is ARRAY (0 to 15) of STD_LOGIC_VECTOR (7 downto 0);
 	signal memoria_cipher : tipo_SRAM;
 	signal memoria_key : tipo_SRAM;
---	signal flag : STD_LOGIC := '0';
 	signal Flag: STD_LOGIC := '0';
 begin
 	cipher <= TxtIn;
@@ -107,11 +90,9 @@ begin
 	TxtOut (119 downto 112) <= memoria_cipher(14) xor memoria_key(14);
 	TxtOut (127 downto 120) <= memoria_cipher(15) xor memoria_key(15);   
 	end if;
-
 end process;	
 
 process(Rst,Clk,Enable)
-    
 	variable cta : STD_LOGIC_VECTOR (1 downto 0):="00";
 	begin
 		if Rst = '1' then
@@ -119,7 +100,7 @@ process(Rst,Clk,Enable)
 		elsif rising_edge(Clk) then
 			if Enable = '1' then
 				cta := cta + 1;
-				if cta = "11" then --2do. clock
+				if cta = "11" then 
 					Flag <= '1';
 				end if;
 			end if;
@@ -127,10 +108,6 @@ process(Rst,Clk,Enable)
 				Flag<='0';
 			end if;
 		end if;
-
 	end process;
-Finish <= Flag;
-
-
-
-end Behavioral;
+	Finish <= Flag;
+end Behavioral; -- of AddRoundKey
