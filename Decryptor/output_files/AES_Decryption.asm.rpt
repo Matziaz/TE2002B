@@ -1,5 +1,5 @@
 Assembler report for AES_Decryption
-Mon Apr 28 11:07:00 2025
+Mon Apr 28 17:47:50 2025
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/output_files/AES_Decryption.sof
+  5. Assembler Device Options: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/output_files/AES_Decryption.sof
   6. Assembler Messages
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Apr 28 11:07:00 2025 ;
+; Assembler Status      ; Successful - Mon Apr 28 17:47:50 2025 ;
 ; Revision Name         ; AES_Decryption                        ;
 ; Top-level Entity Name ; Top                                   ;
 ; Family                ; MAX 10                                ;
@@ -53,23 +53,23 @@ https://fpgasoftware.intel.com/eula.
 +--------+---------+---------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                                                          ;
-+------------------------------------------------------------------------------------------------------------------------------------+
-; File Name                                                                                                                          ;
-+------------------------------------------------------------------------------------------------------------------------------------+
-; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/output_files/AES_Decryption.sof ;
-+------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                                ;
++--------------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                                ;
++--------------------------------------------------------------------------------------------------------------------------+
+; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/output_files/AES_Decryption.sof ;
++--------------------------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/output_files/AES_Decryption.sof ;
-+----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                                                                     ;
-+----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x006652CC                                                                                                                                  ;
-; Checksum       ; 0x006652CC                                                                                                                                  ;
-+----------------+---------------------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/output_files/AES_Decryption.sof ;
++----------------+-----------------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                           ;
++----------------+-----------------------------------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x0065A55B                                                                                                                        ;
+; Checksum       ; 0x0065A55B                                                                                                                        ;
++----------------+-----------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -78,15 +78,15 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Apr 28 11:06:58 2025
+    Info: Processing started: Mon Apr 28 17:47:46 2025
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off AES_Decryption -c AES_Decryption
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4837 megabytes
-    Info: Processing ended: Mon Apr 28 11:07:00 2025
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Processing ended: Mon Apr 28 17:47:50 2025
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 

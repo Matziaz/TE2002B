@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AES_Decryption
-Mon Apr 28 11:05:35 2025
+Mon Apr 28 17:46:05 2025
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -50,13 +50,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Apr 28 11:05:35 2025          ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 28 17:46:05 2025          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; AES_Decryption                                 ;
 ; Top-level Entity Name              ; Top                                            ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 7,427                                          ;
-;     Total combinational functions  ; 4,079                                          ;
+; Total logic elements               ; 7,412                                          ;
+;     Total combinational functions  ; 4,064                                          ;
 ;     Dedicated logic registers      ; 4,482                                          ;
 ; Total registers                    ; 4482                                           ;
 ; Total pins                         ; 400                                            ;
@@ -163,12 +163,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.02        ;
+; Average used               ; 1.01        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 ;     Processor 5            ;   0.1%      ;
@@ -179,25 +179,25 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                         ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------+---------+
-; Top.vhd                          ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd           ;         ;
-; SubBytesKey.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SubBytesKey.vhd   ;         ;
-; StateMach.vhd                    ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd     ;         ;
-; Rcon.vhd                         ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Rcon.vhd          ;         ;
-; Mux2to1.vhd                      ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux2to1.vhd       ;         ;
-; KeySchedule.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd   ;         ;
-; Keyprocessor.vhd                 ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keyprocessor.vhd  ;         ;
-; Keymem.vhd                       ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keymem.vhd        ;         ;
-; InvSubBytes.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvSubBytes.vhd   ;         ;
-; InvShiftRows.vhd                 ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvShiftRows.vhd  ;         ;
-; InvMixColumns.vhd                ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvMixColumns.vhd ;         ;
-; GaloisPackage.vhd                ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/GaloisPackage.vhd ;         ;
-; AddRoundKey.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/AddRoundKey.vhd   ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                      ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                               ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------+---------+
+; Top.vhd                          ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd           ;         ;
+; SubBytesKey.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/SubBytesKey.vhd   ;         ;
+; StateMach.vhd                    ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd     ;         ;
+; Rcon.vhd                         ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Rcon.vhd          ;         ;
+; Mux2to1.vhd                      ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Mux2to1.vhd       ;         ;
+; KeySchedule.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/KeySchedule.vhd   ;         ;
+; Keyprocessor.vhd                 ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keyprocessor.vhd  ;         ;
+; Keymem.vhd                       ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keymem.vhd        ;         ;
+; InvSubBytes.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvSubBytes.vhd   ;         ;
+; InvShiftRows.vhd                 ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvShiftRows.vhd  ;         ;
+; InvMixColumns.vhd                ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvMixColumns.vhd ;         ;
+; GaloisPackage.vhd                ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/GaloisPackage.vhd ;         ;
+; AddRoundKey.vhd                  ; yes             ; User VHDL File  ; C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/AddRoundKey.vhd   ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -205,16 +205,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 7,427     ;
+; Estimated Total logic elements              ; 7,412     ;
 ;                                             ;           ;
-; Total combinational functions               ; 4079      ;
+; Total combinational functions               ; 4064      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 3041      ;
-;     -- 3 input functions                    ; 415       ;
-;     -- <=2 input functions                  ; 623       ;
+;     -- 4 input functions                    ; 3026      ;
+;     -- 3 input functions                    ; 413       ;
+;     -- <=2 input functions                  ; 625       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 4071      ;
+;     -- normal mode                          ; 4056      ;
 ;     -- arithmetic mode                      ; 8         ;
 ;                                             ;           ;
 ; Total registers                             ; 4482      ;
@@ -227,8 +227,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; Clk~input ;
 ; Maximum fan-out                             ; 4482      ;
-; Total fan-out                               ; 29547     ;
-; Average fan-out                             ; 3.16      ;
+; Total fan-out                               ; 29485     ;
+; Average fan-out                             ; 3.15      ;
 +---------------------------------------------+-----------+
 
 
@@ -237,11 +237,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                  ; Entity Name   ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+---------------+--------------+
-; |Top                       ; 4079 (0)            ; 4482 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 400  ; 0            ; 0          ; |Top                                 ; Top           ; work         ;
+; |Top                       ; 4064 (0)            ; 4482 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 400  ; 0            ; 0          ; |Top                                 ; Top           ; work         ;
 ;    |AddRoundKey:u0|        ; 131 (131)           ; 387 (387)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|AddRoundKey:u0                  ; AddRoundKey   ; work         ;
 ;    |AddRoundKey:u4|        ; 131 (131)           ; 387 (387)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|AddRoundKey:u4                  ; AddRoundKey   ; work         ;
 ;    |AddRoundKey:u7|        ; 131 (131)           ; 387 (387)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|AddRoundKey:u7                  ; AddRoundKey   ; work         ;
-;    |InvMixColumns:u3|      ; 351 (351)           ; 131 (131)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|InvMixColumns:u3                ; InvMixColumns ; work         ;
+;    |InvMixColumns:u3|      ; 352 (352)           ; 131 (131)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|InvMixColumns:u3                ; InvMixColumns ; work         ;
 ;    |InvShiftRows:u2|       ; 0 (0)               ; 129 (129)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|InvShiftRows:u2                 ; InvShiftRows  ; work         ;
 ;    |InvShiftRows:u6|       ; 0 (0)               ; 129 (129)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|InvShiftRows:u6                 ; InvShiftRows  ; work         ;
 ;    |InvSubBytes:u1|        ; 333 (333)           ; 264 (264)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|InvSubBytes:u1                  ; InvSubBytes   ; work         ;
@@ -252,7 +252,7 @@ https://fpgasoftware.intel.com/eula.
 ;       |Rcon:U03|           ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|KeySchedule:u9|Rcon:U03         ; Rcon          ; work         ;
 ;       |SubBytesKey:U04|    ; 832 (832)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|KeySchedule:u9|SubBytesKey:U04  ; SubBytesKey   ; work         ;
 ;    |Mux2to1:u8|            ; 128 (128)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|Mux2to1:u8                      ; Mux2to1       ; work         ;
-;    |StateMach:u10|         ; 52 (52)             ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|StateMach:u10                   ; StateMach     ; work         ;
+;    |StateMach:u10|         ; 36 (36)             ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Top|StateMach:u10                   ; StateMach     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -285,7 +285,7 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; State Machine - |Top|StateMach:u10|ESTACT                                                                                                                       ;
 +---------------+------------+-------------+---------------+---------------+-------------+--------------+---------------+---------------+-------------+-----------+
-; Name          ; ESTACT.Fin ; ESTACT.ARK3 ; ESTACT.InvSR2 ; ESTACT.InvSB2 ; ESTACT.ARK2 ; ESTACT.InvMC ; ESTACT.InvSR1 ; ESTACT.InvSB1 ; ESTACT.ARK1 ; ESTACT.KS ;
+; Name          ; ESTACT.Fin ; ESTACT.ARK3 ; ESTACT.InvSB2 ; ESTACT.InvSR2 ; ESTACT.ARK2 ; ESTACT.InvMC ; ESTACT.InvSR1 ; ESTACT.InvSB1 ; ESTACT.ARK1 ; ESTACT.KS ;
 +---------------+------------+-------------+---------------+---------------+-------------+--------------+---------------+---------------+-------------+-----------+
 ; ESTACT.KS     ; 0          ; 0           ; 0             ; 0             ; 0           ; 0            ; 0             ; 0             ; 0           ; 0         ;
 ; ESTACT.ARK1   ; 0          ; 0           ; 0             ; 0             ; 0           ; 0            ; 0             ; 0             ; 1           ; 1         ;
@@ -293,8 +293,8 @@ Encoding Type:  One-Hot
 ; ESTACT.InvSR1 ; 0          ; 0           ; 0             ; 0             ; 0           ; 0            ; 1             ; 0             ; 0           ; 1         ;
 ; ESTACT.InvMC  ; 0          ; 0           ; 0             ; 0             ; 0           ; 1            ; 0             ; 0             ; 0           ; 1         ;
 ; ESTACT.ARK2   ; 0          ; 0           ; 0             ; 0             ; 1           ; 0            ; 0             ; 0             ; 0           ; 1         ;
-; ESTACT.InvSB2 ; 0          ; 0           ; 0             ; 1             ; 0           ; 0            ; 0             ; 0             ; 0           ; 1         ;
-; ESTACT.InvSR2 ; 0          ; 0           ; 1             ; 0             ; 0           ; 0            ; 0             ; 0             ; 0           ; 1         ;
+; ESTACT.InvSR2 ; 0          ; 0           ; 0             ; 1             ; 0           ; 0            ; 0             ; 0             ; 0           ; 1         ;
+; ESTACT.InvSB2 ; 0          ; 0           ; 1             ; 0             ; 0           ; 0            ; 0             ; 0             ; 0           ; 1         ;
 ; ESTACT.ARK3   ; 0          ; 1           ; 0             ; 0             ; 0           ; 0            ; 0             ; 0             ; 0           ; 1         ;
 ; ESTACT.Fin    ; 1          ; 0           ; 0             ; 0             ; 0           ; 0            ; 0             ; 0             ; 0           ; 1         ;
 +---------------+------------+-------------+---------------+---------------+-------------+--------------+---------------+---------------+-------------+-----------+
@@ -310,15 +310,15 @@ Encoding Type:  One-Hot
 ; StateMach:u10|s_SelectKey[2]                        ; StateMach:u10|Selector15 ; yes                    ;
 ; StateMach:u10|s_SelectKey[3]                        ; StateMach:u10|Selector17 ; yes                    ;
 ; StateMach:u10|MuxSel                                ; StateMach:u10|WideOr2    ; yes                    ;
-; StateMach:u10|SIGEST.ARK1_485                       ; StateMach:u10|Selector1  ; yes                    ;
-; StateMach:u10|SIGEST.InvSB1_466                     ; StateMach:u10|Selector1  ; yes                    ;
-; StateMach:u10|SIGEST.InvSR1_447                     ; StateMach:u10|Selector1  ; yes                    ;
-; StateMach:u10|SIGEST.InvMC_428                      ; StateMach:u10|Selector1  ; yes                    ;
-; StateMach:u10|SIGEST.ARK2_409                       ; StateMach:u10|Selector1  ; yes                    ;
-; StateMach:u10|SIGEST.InvSB2_390                     ; StateMach:u10|Selector1  ; yes                    ;
-; StateMach:u10|SIGEST.InvSR2_371                     ; StateMach:u10|Selector1  ; yes                    ;
-; StateMach:u10|SIGEST.ARK3_352                       ; StateMach:u10|Selector1  ; yes                    ;
-; StateMach:u10|SIGEST.Fin_333                        ; StateMach:u10|Selector1  ; yes                    ;
+; StateMach:u10|SIGEST.ARK1_436                       ; StateMach:u10|Selector13 ; yes                    ;
+; StateMach:u10|SIGEST.InvSB1_419                     ; StateMach:u10|Selector13 ; yes                    ;
+; StateMach:u10|SIGEST.InvSR1_402                     ; StateMach:u10|Selector13 ; yes                    ;
+; StateMach:u10|SIGEST.InvMC_385                      ; StateMach:u10|Selector13 ; yes                    ;
+; StateMach:u10|SIGEST.ARK2_368                       ; StateMach:u10|Selector13 ; yes                    ;
+; StateMach:u10|SIGEST.InvSB2_334                     ; StateMach:u10|Selector13 ; yes                    ;
+; StateMach:u10|SIGEST.InvSR2_351                     ; StateMach:u10|Selector13 ; yes                    ;
+; StateMach:u10|SIGEST.ARK3_317                       ; StateMach:u10|Selector13 ; yes                    ;
+; StateMach:u10|SIGEST.Fin_300                        ; StateMach:u10|Selector13 ; yes                    ;
 ; Number of user-specified and inferred latches = 14  ;                          ;                        ;
 +-----------------------------------------------------+--------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
@@ -500,7 +500,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |Top|InvSubBytes:u1|byte_counter[3]               ;
 ; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |Top|InvSubBytes:u5|Mux0                          ;
 ; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |Top|InvSubBytes:u1|Mux5                          ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Top|StateMach:u10|Selector13                     ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Top|StateMach:u10|Selector12                     ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Top|InvSubBytes:u1|Selector129                   ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Top|InvSubBytes:u5|Selector129                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
@@ -518,17 +518,17 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ;     ENA CLR           ; 911                         ;
 ;     ENA SLD           ; 1                           ;
 ;     plain             ; 1                           ;
-; cycloneiii_lcell_comb ; 4080                        ;
+; cycloneiii_lcell_comb ; 4065                        ;
 ;     arith             ; 8                           ;
 ;         2 data inputs ; 8                           ;
-;     normal            ; 4072                        ;
+;     normal            ; 4057                        ;
 ;         1 data inputs ; 7                           ;
-;         2 data inputs ; 609                         ;
-;         3 data inputs ; 415                         ;
-;         4 data inputs ; 3041                        ;
+;         2 data inputs ; 611                         ;
+;         3 data inputs ; 413                         ;
+;         4 data inputs ; 3026                        ;
 ;                       ;                             ;
 ; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 3.06                        ;
+; Average LUT depth     ; 3.05                        ;
 +-----------------------+-----------------------------+
 
 
@@ -537,7 +537,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:13     ;
+; Top            ; 00:00:23     ;
 +----------------+--------------+
 
 
@@ -547,137 +547,137 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Apr 28 11:05:14 2025
+    Info: Processing started: Mon Apr 28 17:45:30 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AES_Decryption -c AES_Decryption
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file top_tb.vhd
-    Info (12022): Found design unit 1: Top_tb-behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top_tb.vhd Line: 29
-    Info (12023): Found entity 1: Top_tb File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top_tb.vhd Line: 26
+    Info (12022): Found design unit 1: Top_tb-behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top_tb.vhd Line: 29
+    Info (12023): Found entity 1: Top_tb File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top_tb.vhd Line: 26
 Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
-    Info (12022): Found design unit 1: Top-structure File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 54
-    Info (12023): Found entity 1: Top File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 26
+    Info (12022): Found design unit 1: Top-structure File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd Line: 54
+    Info (12023): Found entity 1: Top File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd Line: 26
 Info (12021): Found 2 design units, including 1 entities, in source file subbyteskey.vhd
-    Info (12022): Found design unit 1: SubBytesKey-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SubBytesKey.vhd Line: 36
-    Info (12023): Found entity 1: SubBytesKey File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SubBytesKey.vhd Line: 30
+    Info (12022): Found design unit 1: SubBytesKey-Behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/SubBytesKey.vhd Line: 36
+    Info (12023): Found entity 1: SubBytesKey File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/SubBytesKey.vhd Line: 30
 Info (12021): Found 2 design units, including 1 entities, in source file statemach.vhd
-    Info (12022): Found design unit 1: StateMach-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 53
-    Info (12023): Found entity 1: StateMach File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 26
+    Info (12022): Found design unit 1: StateMach-Behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 223
+    Info (12023): Found entity 1: StateMach File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 195
 Info (12021): Found 2 design units, including 1 entities, in source file sbox.vhd
-    Info (12022): Found design unit 1: SBox-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SBox.vhd Line: 37
-    Info (12023): Found entity 1: SBox File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SBox.vhd Line: 30
+    Info (12022): Found design unit 1: SBox-Behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/SBox.vhd Line: 37
+    Info (12023): Found entity 1: SBox File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/SBox.vhd Line: 30
 Info (12021): Found 2 design units, including 1 entities, in source file rcon.vhd
-    Info (12022): Found design unit 1: Rcon-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Rcon.vhd Line: 36
-    Info (12023): Found entity 1: Rcon File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Rcon.vhd Line: 30
+    Info (12022): Found design unit 1: Rcon-Behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Rcon.vhd Line: 36
+    Info (12023): Found entity 1: Rcon File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Rcon.vhd Line: 30
 Info (12021): Found 2 design units, including 1 entities, in source file mux2to1.vhd
-    Info (12022): Found design unit 1: Mux2to1-rtl File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux2to1.vhd Line: 40
-    Info (12023): Found entity 1: Mux2to1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux2to1.vhd Line: 26
-Warning (12090): Entity "Mux" obtained from "Mux.vhd" instead of from Quartus Prime megafunction library File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux.vhd Line: 30
+    Info (12022): Found design unit 1: Mux2to1-rtl File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Mux2to1.vhd Line: 40
+    Info (12023): Found entity 1: Mux2to1 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Mux2to1.vhd Line: 26
+Warning (12090): Entity "Mux" obtained from "Mux.vhd" instead of from Quartus Prime megafunction library File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Mux.vhd Line: 30
 Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
-    Info (12022): Found design unit 1: Mux-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux.vhd Line: 36
-    Info (12023): Found entity 1: Mux File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux.vhd Line: 30
+    Info (12022): Found design unit 1: Mux-Behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Mux.vhd Line: 36
+    Info (12023): Found entity 1: Mux File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Mux.vhd Line: 30
 Info (12021): Found 2 design units, including 1 entities, in source file keyschedule.vhd
-    Info (12022): Found design unit 1: KeySchedule-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 35
-    Info (12023): Found entity 1: KeySchedule File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 25
+    Info (12022): Found design unit 1: KeySchedule-Behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/KeySchedule.vhd Line: 35
+    Info (12023): Found entity 1: KeySchedule File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/KeySchedule.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file keyprocessor.vhd
-    Info (12022): Found design unit 1: Keyprocessor-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keyprocessor.vhd Line: 34
-    Info (12023): Found entity 1: Keyprocessor File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keyprocessor.vhd Line: 18
+    Info (12022): Found design unit 1: Keyprocessor-Behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keyprocessor.vhd Line: 34
+    Info (12023): Found entity 1: Keyprocessor File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keyprocessor.vhd Line: 18
 Info (12021): Found 2 design units, including 1 entities, in source file keymem.vhd
-    Info (12022): Found design unit 1: Keymem-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keymem.vhd Line: 28
-    Info (12023): Found entity 1: Keymem File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keymem.vhd Line: 18
+    Info (12022): Found design unit 1: Keymem-Behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keymem.vhd Line: 28
+    Info (12023): Found entity 1: Keymem File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keymem.vhd Line: 18
 Info (12021): Found 2 design units, including 1 entities, in source file invsubbytes.vhd
-    Info (12022): Found design unit 1: InvSubBytes-behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvSubBytes.vhd Line: 166
-    Info (12023): Found entity 1: InvSubBytes File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvSubBytes.vhd Line: 155
+    Info (12022): Found design unit 1: InvSubBytes-behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvSubBytes.vhd Line: 166
+    Info (12023): Found entity 1: InvSubBytes File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvSubBytes.vhd Line: 155
 Info (12021): Found 2 design units, including 1 entities, in source file invshiftrows.vhd
-    Info (12022): Found design unit 1: InvShiftRows-rtl File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvShiftRows.vhd Line: 216
-    Info (12023): Found entity 1: InvShiftRows File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvShiftRows.vhd Line: 204
+    Info (12022): Found design unit 1: InvShiftRows-rtl File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvShiftRows.vhd Line: 216
+    Info (12023): Found entity 1: InvShiftRows File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvShiftRows.vhd Line: 204
 Info (12021): Found 2 design units, including 1 entities, in source file invmixcolumns.vhd
-    Info (12022): Found design unit 1: InvMixColumns-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvMixColumns.vhd Line: 36
-    Info (12023): Found entity 1: InvMixColumns File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvMixColumns.vhd Line: 27
+    Info (12022): Found design unit 1: InvMixColumns-Behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvMixColumns.vhd Line: 36
+    Info (12023): Found entity 1: InvMixColumns File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvMixColumns.vhd Line: 27
 Info (12021): Found 2 design units, including 0 entities, in source file galoispackage.vhd
-    Info (12022): Found design unit 1: GaloisPackage File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/GaloisPackage.vhd Line: 27
-    Info (12022): Found design unit 2: GaloisPackage-body File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/GaloisPackage.vhd Line: 37
+    Info (12022): Found design unit 1: GaloisPackage File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/GaloisPackage.vhd Line: 27
+    Info (12022): Found design unit 2: GaloisPackage-body File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/GaloisPackage.vhd Line: 37
 Info (12021): Found 2 design units, including 1 entities, in source file demux.vhd
-    Info (12022): Found design unit 1: DeMux-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/DeMux.vhd Line: 36
-    Info (12023): Found entity 1: DeMux File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/DeMux.vhd Line: 30
+    Info (12022): Found design unit 1: DeMux-Behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/DeMux.vhd Line: 36
+    Info (12023): Found entity 1: DeMux File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/DeMux.vhd Line: 30
 Info (12021): Found 2 design units, including 1 entities, in source file addroundkey.vhd
-    Info (12022): Found design unit 1: AddRoundKey-Behavioral File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/AddRoundKey.vhd Line: 222
-    Info (12023): Found entity 1: AddRoundKey File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/AddRoundKey.vhd Line: 212
+    Info (12022): Found design unit 1: AddRoundKey-Behavioral File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/AddRoundKey.vhd Line: 222
+    Info (12023): Found entity 1: AddRoundKey File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/AddRoundKey.vhd Line: 212
 Info (12127): Elaborating entity "Top" for the top level hierarchy
-Info (12128): Elaborating entity "AddRoundKey" for hierarchy "AddRoundKey:u0" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 191
-Info (12128): Elaborating entity "Mux2to1" for hierarchy "Mux2to1:u8" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 211
-Info (12128): Elaborating entity "KeySchedule" for hierarchy "KeySchedule:u9" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 218
-Info (12128): Elaborating entity "Keyprocessor" for hierarchy "KeySchedule:u9|Keyprocessor:U01" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 89
-Info (12128): Elaborating entity "Keymem" for hierarchy "KeySchedule:u9|Keymem:U02" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 104
-Info (12128): Elaborating entity "Rcon" for hierarchy "KeySchedule:u9|Rcon:U03" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 113
-Info (12128): Elaborating entity "SubBytesKey" for hierarchy "KeySchedule:u9|SubBytesKey:U04" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd Line: 118
-Info (12128): Elaborating entity "StateMach" for hierarchy "StateMach:u10" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 228
-Warning (10492): VHDL Process Statement warning at StateMach.vhd(104): signal "s_SelectKey" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 104
-Warning (10492): VHDL Process Statement warning at StateMach.vhd(115): signal "s_SelectKey" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 115
-Warning (10631): VHDL Process Statement warning at StateMach.vhd(81): inferring latch(es) for signal or variable "s_SelectKey", which holds its previous value in one or more paths through the process File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Warning (10631): VHDL Process Statement warning at StateMach.vhd(81): inferring latch(es) for signal or variable "SIGEST", which holds its previous value in one or more paths through the process File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Warning (10631): VHDL Process Statement warning at StateMach.vhd(81): inferring latch(es) for signal or variable "MuxSel", which holds its previous value in one or more paths through the process File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "MuxSel" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "SIGEST.Fin" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "SIGEST.ARK3" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "SIGEST.InvSR2" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "SIGEST.InvSB2" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "SIGEST.ARK2" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "SIGEST.InvMC" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "SIGEST.InvSR1" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "SIGEST.InvSB1" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "SIGEST.ARK1" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "SIGEST.KS" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "s_SelectKey[0]" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "s_SelectKey[1]" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "s_SelectKey[2]" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (10041): Inferred latch for "s_SelectKey[3]" at StateMach.vhd(81) File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-Info (12128): Elaborating entity "InvSubBytes" for hierarchy "InvSubBytes:u1" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 253
-Info (12128): Elaborating entity "InvShiftRows" for hierarchy "InvShiftRows:u2" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 262
-Info (12128): Elaborating entity "InvMixColumns" for hierarchy "InvMixColumns:u3" File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd Line: 271
+Info (12128): Elaborating entity "AddRoundKey" for hierarchy "AddRoundKey:u0" File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd Line: 191
+Info (12128): Elaborating entity "Mux2to1" for hierarchy "Mux2to1:u8" File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd Line: 211
+Info (12128): Elaborating entity "KeySchedule" for hierarchy "KeySchedule:u9" File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd Line: 218
+Info (12128): Elaborating entity "Keyprocessor" for hierarchy "KeySchedule:u9|Keyprocessor:U01" File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/KeySchedule.vhd Line: 89
+Info (12128): Elaborating entity "Keymem" for hierarchy "KeySchedule:u9|Keymem:U02" File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/KeySchedule.vhd Line: 104
+Info (12128): Elaborating entity "Rcon" for hierarchy "KeySchedule:u9|Rcon:U03" File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/KeySchedule.vhd Line: 113
+Info (12128): Elaborating entity "SubBytesKey" for hierarchy "KeySchedule:u9|SubBytesKey:U04" File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/KeySchedule.vhd Line: 118
+Info (12128): Elaborating entity "StateMach" for hierarchy "StateMach:u10" File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd Line: 228
+Warning (10492): VHDL Process Statement warning at StateMach.vhd(301): signal "s_SelectKey" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 301
+Warning (10492): VHDL Process Statement warning at StateMach.vhd(307): signal "s_SelectKey" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 307
+Warning (10631): VHDL Process Statement warning at StateMach.vhd(278): inferring latch(es) for signal or variable "s_SelectKey", which holds its previous value in one or more paths through the process File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Warning (10631): VHDL Process Statement warning at StateMach.vhd(278): inferring latch(es) for signal or variable "SIGEST", which holds its previous value in one or more paths through the process File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Warning (10631): VHDL Process Statement warning at StateMach.vhd(278): inferring latch(es) for signal or variable "MuxSel", which holds its previous value in one or more paths through the process File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "MuxSel" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "SIGEST.Fin" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "SIGEST.ARK3" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "SIGEST.InvSB2" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "SIGEST.InvSR2" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "SIGEST.ARK2" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "SIGEST.InvMC" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "SIGEST.InvSR1" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "SIGEST.InvSB1" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "SIGEST.ARK1" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "SIGEST.KS" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "s_SelectKey[0]" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "s_SelectKey[1]" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "s_SelectKey[2]" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (10041): Inferred latch for "s_SelectKey[3]" at StateMach.vhd(278) File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+Info (12128): Elaborating entity "InvSubBytes" for hierarchy "InvSubBytes:u1" File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd Line: 253
+Info (12128): Elaborating entity "InvShiftRows" for hierarchy "InvShiftRows:u2" File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd Line: 262
+Info (12128): Elaborating entity "InvMixColumns" for hierarchy "InvMixColumns:u3" File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd Line: 271
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "KeySchedule:u9|Keymem:U02|KEYs" is uninferred due to asynchronous read logic File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keymem.vhd Line: 31
-Warning (13012): Latch StateMach:u10|s_SelectKey[0] has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|s_SelectKey[1] has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK3 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|s_SelectKey[2] has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|s_SelectKey[3] has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK3 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|MuxSel has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 40
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvMC File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|SIGEST.ARK1_485 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.KS File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|SIGEST.InvSB1_466 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSR1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|SIGEST.InvSR1_447 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|SIGEST.InvMC_428 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK2 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|SIGEST.ARK2_409 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB1 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|SIGEST.InvSB2_390 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSR2 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|SIGEST.InvSR2_371 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvMC File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|SIGEST.ARK3_352 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB2 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Warning (13012): Latch StateMach:u10|SIGEST.Fin_333 has unsafe behavior File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 81
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK3 File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd Line: 57
-Info (13000): Registers with preset signals will power-up high File: C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keyprocessor.vhd Line: 57
+    Info (276007): RAM logic "KeySchedule:u9|Keymem:U02|KEYs" is uninferred due to asynchronous read logic File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keymem.vhd Line: 31
+Warning (13012): Latch StateMach:u10|s_SelectKey[0] has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB1 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|s_SelectKey[1] has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK3 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|s_SelectKey[2] has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB1 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|s_SelectKey[3] has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK3 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|MuxSel has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 210
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvMC File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|SIGEST.ARK1_436 has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.KS File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|SIGEST.InvSB1_419 has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSR1 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|SIGEST.InvSR1_402 has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK1 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|SIGEST.InvMC_385 has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK2 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|SIGEST.ARK2_368 has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB1 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|SIGEST.InvSB2_334 has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSR2 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|SIGEST.InvSR2_351 has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK2 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|SIGEST.ARK3_317 has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.InvSB2 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Warning (13012): Latch StateMach:u10|SIGEST.Fin_300 has unsafe behavior File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 278
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal StateMach:u10|ESTACT.ARK3 File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd Line: 240
+Info (13000): Registers with preset signals will power-up high File: C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keyprocessor.vhd Line: 57
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 7980 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 7965 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 258 input pins
     Info (21059): Implemented 142 output pins
-    Info (21061): Implemented 7580 logic cells
+    Info (21061): Implemented 7565 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 35 warnings
     Info: Peak virtual memory: 4966 megabytes
-    Info: Processing ended: Mon Apr 28 11:05:35 2025
-    Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:31
+    Info: Processing ended: Mon Apr 28 17:46:05 2025
+    Info: Elapsed time: 00:00:35
+    Info: Total CPU time (on all processors): 00:00:52
 
 

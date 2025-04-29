@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Mon Apr 28 11:05:35 2025
+Analysis & Synthesis Status : Successful - Mon Apr 28 17:46:05 2025
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : AES_Decryption
 Top-level Entity Name : Top
 Family : MAX 10
-Total logic elements : 7,427
-    Total combinational functions : 4,079
+Total logic elements : 7,412
+    Total combinational functions : 4,064
     Dedicated logic registers : 4,482
 Total registers : 4482
 Total pins : 400

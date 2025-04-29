@@ -24,21 +24,21 @@
 # Copying c:/intelfpga_lite/23.1std/questa_fse/win64/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:07:58 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top.vhd 
+# Start time: 17:48:22 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Top
 # -- Compiling architecture structure of Top
-# End time: 11:07:58 on Apr 28,2025, Elapsed time: 0:00:00
+# End time: 17:48:22 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SubBytesKey.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/SubBytesKey.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:07:58 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/SubBytesKey.vhd 
+# Start time: 17:48:22 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/SubBytesKey.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -46,12 +46,12 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity SubBytesKey
 # -- Compiling architecture Behavioral of SubBytesKey
-# End time: 11:07:59 on Apr 28,2025, Elapsed time: 0:00:01
+# End time: 17:48:22 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:07:59 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/StateMach.vhd 
+# Start time: 17:48:23 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/StateMach.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -59,12 +59,12 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity StateMach
 # -- Compiling architecture Behavioral of StateMach
-# End time: 11:07:59 on Apr 28,2025, Elapsed time: 0:00:00
+# End time: 17:48:23 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Rcon.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Rcon.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:07:59 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Rcon.vhd 
+# Start time: 17:48:23 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Rcon.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -72,23 +72,23 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity Rcon
 # -- Compiling architecture Behavioral of Rcon
-# End time: 11:07:59 on Apr 28,2025, Elapsed time: 0:00:00
+# End time: 17:48:23 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux2to1.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Mux2to1.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:07:59 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Mux2to1.vhd 
+# Start time: 17:48:23 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Mux2to1.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Mux2to1
 # -- Compiling architecture rtl of Mux2to1
-# End time: 11:07:59 on Apr 28,2025, Elapsed time: 0:00:00
+# End time: 17:48:23 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/KeySchedule.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:07:59 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/KeySchedule.vhd 
+# Start time: 17:48:24 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/KeySchedule.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -96,12 +96,12 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity KeySchedule
 # -- Compiling architecture Behavioral of KeySchedule
-# End time: 11:07:59 on Apr 28,2025, Elapsed time: 0:00:00
+# End time: 17:48:24 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keyprocessor.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keyprocessor.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:07:59 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keyprocessor.vhd 
+# Start time: 17:48:24 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keyprocessor.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -109,12 +109,12 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity Keyprocessor
 # -- Compiling architecture Behavioral of Keyprocessor
-# End time: 11:07:59 on Apr 28,2025, Elapsed time: 0:00:00
+# End time: 17:48:24 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keymem.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keymem.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:07:59 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Keymem.vhd 
+# Start time: 17:48:24 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Keymem.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -122,48 +122,48 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity Keymem
 # -- Compiling architecture Behavioral of Keymem
-# End time: 11:08:00 on Apr 28,2025, Elapsed time: 0:00:01
+# End time: 17:48:24 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvSubBytes.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvSubBytes.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:08:00 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvSubBytes.vhd 
+# Start time: 17:48:25 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvSubBytes.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity InvSubBytes
 # -- Compiling architecture behavioral of InvSubBytes
-# End time: 11:08:00 on Apr 28,2025, Elapsed time: 0:00:00
+# End time: 17:48:25 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvShiftRows.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvShiftRows.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:08:00 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvShiftRows.vhd 
+# Start time: 17:48:25 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvShiftRows.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
 # -- Compiling entity InvShiftRows
 # -- Compiling architecture rtl of InvShiftRows
-# End time: 11:08:00 on Apr 28,2025, Elapsed time: 0:00:00
+# End time: 17:48:25 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/GaloisPackage.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/GaloisPackage.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:08:00 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/GaloisPackage.vhd 
+# Start time: 17:48:25 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/GaloisPackage.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package GaloisPackage
 # -- Compiling package body GaloisPackage
 # -- Loading package GaloisPackage
-# End time: 11:08:00 on Apr 28,2025, Elapsed time: 0:00:00
+# End time: 17:48:25 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/AddRoundKey.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/AddRoundKey.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:08:00 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/AddRoundKey.vhd 
+# Start time: 17:48:26 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/AddRoundKey.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -171,12 +171,12 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity AddRoundKey
 # -- Compiling architecture Behavioral of AddRoundKey
-# End time: 11:08:00 on Apr 28,2025, Elapsed time: 0:00:00
+# End time: 17:48:26 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvMixColumns.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvMixColumns.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:08:00 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/InvMixColumns.vhd 
+# Start time: 17:48:26 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/InvMixColumns.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -185,24 +185,24 @@
 # -- Loading package GaloisPackage
 # -- Compiling entity InvMixColumns
 # -- Compiling architecture Behavioral of InvMixColumns
-# End time: 11:08:01 on Apr 28,2025, Elapsed time: 0:00:01
+# End time: 17:48:26 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vcom -93 -work work {C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top_tb.vhd}
+# vcom -93 -work work {C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top_tb.vhd}
 # Questa Intel Starter FPGA Edition-64 vcom 2023.3 Compiler 2023.07 Jul 17 2023
-# Start time: 11:08:01 on Apr 28,2025
-# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/New/TE2002B/P19b_AES_Decryption_tb_alumnos/P19b_AES_Decryption_tb_alumnos/Top_tb.vhd 
+# Start time: 17:48:26 on Apr 28,2025
+# vcom -reportprogress 300 -93 -work work C:/Users/matia/Documents/TE2002B/PROYECTOS_FINALES/Encryptor_Decryptor/TE2002B/Decryptor/Top_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Top_tb
 # -- Compiling architecture behavior of Top_tb
-# End time: 11:08:01 on Apr 28,2025, Elapsed time: 0:00:00
+# End time: 17:48:26 on Apr 28,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  Top_tb
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs=""+acc"" Top_tb 
-# Start time: 11:08:01 on Apr 28,2025
+# Start time: 17:48:27 on Apr 28,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
 # ** Note: (vopt-143) Recognized 1 FSM in architecture body "InvSubBytes(behavioral)".
@@ -237,8 +237,6 @@
 # .main_pane.objects.interior.cs.body.tree
 # run 6000 ns
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/u10
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/u9/U04
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 #    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/u9/U04
@@ -262,9 +260,5 @@
 #    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/u9/U02
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 #    Time: 0 ps  Iteration: 0  Instance: /top_tb/uut/u9/U02
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /top_tb/uut/u10
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /top_tb/uut/u10
-# End time: 11:08:22 on Apr 28,2025, Elapsed time: 0:00:21
-# Errors: 0, Warnings: 16
+# End time: 17:49:32 on Apr 28,2025, Elapsed time: 0:01:05
+# Errors: 0, Warnings: 13

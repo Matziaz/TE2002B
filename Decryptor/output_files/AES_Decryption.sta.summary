@@ -2,112 +2,148 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'StateMach:u10|ESTACT.ARK1'
-Slack : -8.225
-TNS   : -45.457
+Type  : Slow 1200mV 85C Model Setup 'Clk'
+Slack : -7.855
+TNS   : -17383.818
 
 Type  : Slow 1200mV 85C Model Setup 'AddRoundKey:u0|Flag'
-Slack : -8.023
-TNS   : -46.967
+Slack : -6.733
+TNS   : -41.149
 
-Type  : Slow 1200mV 85C Model Setup 'Clk'
-Slack : -7.103
-TNS   : -15657.302
+Type  : Slow 1200mV 85C Model Setup 'AddRoundKey:u7|Flag'
+Slack : -5.818
+TNS   : -49.866
+
+Type  : Slow 1200mV 85C Model Setup 'StateMach:u10|ESTACT.ARK1'
+Slack : -5.317
+TNS   : -38.450
 
 Type  : Slow 1200mV 85C Model Hold 'Clk'
-Slack : 0.341
+Slack : 0.250
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'AddRoundKey:u7|Flag'
+Slack : 1.275
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'StateMach:u10|ESTACT.ARK1'
-Slack : 0.484
+Slack : 1.434
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'AddRoundKey:u0|Flag'
-Slack : 0.495
+Slack : 2.709
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Clk'
 Slack : -3.000
 TNS   : -6291.246
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'StateMach:u10|ESTACT.ARK1'
-Slack : -0.939
-TNS   : -36.670
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AddRoundKey:u0|Flag'
-Slack : -0.584
-TNS   : -22.089
-
-Type  : Slow 1200mV 0C Model Setup 'StateMach:u10|ESTACT.ARK1'
-Slack : -7.796
-TNS   : -43.281
-
-Type  : Slow 1200mV 0C Model Setup 'AddRoundKey:u0|Flag'
-Slack : -7.588
-TNS   : -44.373
-
-Type  : Slow 1200mV 0C Model Setup 'Clk'
-Slack : -6.413
-TNS   : -14254.836
-
-Type  : Slow 1200mV 0C Model Hold 'Clk'
-Slack : 0.306
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AddRoundKey:u7|Flag'
+Slack : 0.348
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'AddRoundKey:u0|Flag'
-Slack : 0.427
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'AddRoundKey:u0|Flag'
+Slack : 0.407
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'StateMach:u10|ESTACT.ARK1'
+Slack : 0.411
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'Clk'
+Slack : -7.194
+TNS   : -15873.468
+
+Type  : Slow 1200mV 0C Model Setup 'AddRoundKey:u0|Flag'
+Slack : -6.255
+TNS   : -39.190
+
+Type  : Slow 1200mV 0C Model Setup 'AddRoundKey:u7|Flag'
+Slack : -5.424
+TNS   : -47.315
+
+Type  : Slow 1200mV 0C Model Setup 'StateMach:u10|ESTACT.ARK1'
+Slack : -4.872
+TNS   : -35.979
+
+Type  : Slow 1200mV 0C Model Hold 'Clk'
+Slack : 0.102
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'AddRoundKey:u7|Flag'
+Slack : 1.345
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'StateMach:u10|ESTACT.ARK1'
-Slack : 0.590
+Slack : 1.422
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'AddRoundKey:u0|Flag'
+Slack : 2.666
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clk'
 Slack : -3.000
 TNS   : -6291.246
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'StateMach:u10|ESTACT.ARK1'
-Slack : -0.953
-TNS   : -32.365
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AddRoundKey:u0|Flag'
-Slack : -0.562
-TNS   : -19.030
-
-Type  : Fast 1200mV 0C Model Setup 'StateMach:u10|ESTACT.ARK1'
-Slack : -3.266
-TNS   : -13.845
-
-Type  : Fast 1200mV 0C Model Setup 'AddRoundKey:u0|Flag'
-Slack : -3.081
-TNS   : -12.747
-
-Type  : Fast 1200mV 0C Model Setup 'Clk'
-Slack : -2.648
-TNS   : -4653.384
-
-Type  : Fast 1200mV 0C Model Hold 'AddRoundKey:u0|Flag'
-Slack : -0.019
-TNS   : -0.019
-
-Type  : Fast 1200mV 0C Model Hold 'StateMach:u10|ESTACT.ARK1'
-Slack : 0.067
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AddRoundKey:u7|Flag'
+Slack : 0.384
 TNS   : 0.000
 
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'StateMach:u10|ESTACT.ARK1'
+Slack : 0.393
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'AddRoundKey:u0|Flag'
+Slack : 0.413
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Clk'
+Slack : -3.330
+TNS   : -5394.789
+
+Type  : Fast 1200mV 0C Model Setup 'AddRoundKey:u0|Flag'
+Slack : -2.635
+TNS   : -14.564
+
+Type  : Fast 1200mV 0C Model Setup 'AddRoundKey:u7|Flag'
+Slack : -2.271
+TNS   : -16.962
+
+Type  : Fast 1200mV 0C Model Setup 'StateMach:u10|ESTACT.ARK1'
+Slack : -2.023
+TNS   : -10.664
+
 Type  : Fast 1200mV 0C Model Hold 'Clk'
-Slack : 0.148
+Slack : 0.096
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'StateMach:u10|ESTACT.ARK1'
+Slack : 0.325
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'AddRoundKey:u7|Flag'
+Slack : 0.409
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'AddRoundKey:u0|Flag'
+Slack : 0.972
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clk'
 Slack : -3.000
-TNS   : -4638.817
+TNS   : -4633.971
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'StateMach:u10|ESTACT.ARK1'
-Slack : -0.215
-TNS   : -3.849
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'AddRoundKey:u7|Flag'
+Slack : 0.261
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'AddRoundKey:u0|Flag'
-Slack : -0.092
-TNS   : -1.275
+Slack : 0.293
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'StateMach:u10|ESTACT.ARK1'
+Slack : 0.376
+TNS   : 0.000
 
 ------------------------------------------------------------
