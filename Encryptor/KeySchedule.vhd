@@ -1,4 +1,3 @@
--- Elmer Homero
 ----------------------------------------------------------------------------------
 -- Company: 		 ITESM Campus Queretaro
 -- Engineers:		 Eder Gomez, Vicente Noguez 
