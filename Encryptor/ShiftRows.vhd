@@ -23,12 +23,13 @@ entity ShiftRows is
 end entity ShiftRows;
 
 architecture rtl of ShiftRows is
-    -- Arrays for 16 bytes
+    -- State machine
 	 type state_type is (St0, St1, St2);
 	 signal present_state, next_state : state_type;
-    type byte_array is array (0 to 15) of std_logic_vector(7 downto 0);
     
-    -- Internal signals
+	 -- 16-byte arrays for input and output
+	 type byte_array is array (0 to 15) of std_logic_vector(7 downto 0);
+    
     signal input_bytes  : byte_array;
     signal output_bytes : byte_array;
     signal result       : std_logic_vector(127 downto 0) := (others => '0');
@@ -37,7 +38,7 @@ architecture rtl of ShiftRows is
     signal enable_reg   : std_logic := '0';
 begin
 
-    -- Clock and reset process for control signals
+    -- Clock proces: handles state transitions
     process(Clk, Rst)
     begin
         if Rst = '1' then
@@ -45,7 +46,6 @@ begin
             done <= '0';
             enable_reg <= '0';
         elsif rising_edge(Clk) then
-            -- Register the enable signal
 				present_state <= next_state;
             enable_reg <= Enable;
 				
@@ -53,6 +53,7 @@ begin
 					when St0 =>
 						done <= '0';
 					when St1 =>
+						-- Save processed result
 						result_reg <= result;
 					when St2 =>
 						done <= '1';
@@ -60,6 +61,7 @@ begin
         end if;
     end process;
 	 
+	 --Next stage logic
 	 process(present_state, Enable)
 	 begin
 		next_state <= present_state;
@@ -78,7 +80,9 @@ begin
 		end case;
 	end process;
 					
+
     -- Input separation process (combinational)
+	 --Split 128-bit input into 16 bytes
     process (TxtIn)
     begin
         for i in 0 to 15 loop
@@ -89,21 +93,25 @@ begin
     -- ShiftRows operation process (combinational)
     process (input_bytes)
     begin
+		  -- Row 0 (no shift)	
         output_bytes(0)  <= input_bytes(0);
         output_bytes(4)  <= input_bytes(4);
         output_bytes(8)  <= input_bytes(8);
         output_bytes(12) <= input_bytes(12);
-
+		  
+		  --Row 1 (shift left by 1)
         output_bytes(1)  <= input_bytes(5);
         output_bytes(5)  <= input_bytes(9);
         output_bytes(9)  <= input_bytes(13);
         output_bytes(13) <= input_bytes(1);
 
+		  --Row 2 (shift left by 2)
         output_bytes(2)  <= input_bytes(10);
         output_bytes(6)  <= input_bytes(14);
         output_bytes(10) <= input_bytes(2);
         output_bytes(14) <= input_bytes(6);
 
+		  --Row 3 (shift left by 3)
         output_bytes(3)  <= input_bytes(15);
         output_bytes(7)  <= input_bytes(3);
         output_bytes(11) <= input_bytes(7);
@@ -111,6 +119,7 @@ begin
     end process;
 
     -- Output reconstruction process (combinational)
+	 -- Combine output bytes into 128-bit vector
     process (output_bytes)
     begin
         result <=
@@ -123,5 +132,5 @@ begin
     -- Output assignments
     TxtOut <= result_reg;
     Finish <= done;
-end architecture rtl; -- of ShiftRows
+  end architecture rtl; -- of ShiftRows
 
