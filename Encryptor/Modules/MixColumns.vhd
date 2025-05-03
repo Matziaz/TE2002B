@@ -1,3 +1,13 @@
+--------------------------------------------------------------------------------
+-- Company:		ITESM - IRS 2025
+-- Author:           	Andrés Zegales Taborga, Ana Carolina Coronel, Yumee Chung, Adrián Márquez Núñez 
+-- Create Date: 	22/04/2025
+-- Design Name: 	Mix Columns
+-- Module Name:		Mix Columns Module
+-- Target Devices: 	DE10-Lite
+-- Description: 	Mix Columns AES - Module
+--------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all; 
@@ -109,37 +119,37 @@ architecture rtl of MixColumns is
 		return CypherTxt; 
 	end Mix;
     
-    --Máquina de estados
-   signal state_reg : STD_LOGIC_VECTOR (127 downto 0);  
-   signal process_done: STD_LOGIC := '0';               
-   type state_type is (idle, processing, finished);  
-   signal state : state_type := idle;                
-
-	begin
+   --Máquina de estados
+signal state_reg : STD_LOGIC_VECTOR (127 downto 0);  
+signal process_done: STD_LOGIC := '0';               
+type state_type is (idle, processing, finished);  
+signal state : state_type := idle;                
+begin
    process(Clk,Rst)
    begin
-		if Rst = '1' then
-			state <= idle;
+      if Rst = '1' then
+         state <= idle;
          state_reg <= (others => '0');
          process_done <= '0';
+         TxtOut <= (others => '0');
       elsif rising_edge(Clk) then
-          case state is
-				when idle =>
-					if Enable = '1' then
-						state <= processing;  
+         case state is
+            when idle =>
+               process_done <= '0';
+               if Enable = '1' then
+                  state <= processing;
                end if;
             when processing =>
                state_reg <= Mix(TxtIn);
-               state <= finished;    
+               state <= finished;  
             when finished =>
-					process_done <= '1';  
-               if Enable = '0' then
-						state <= idle;         
-                  process_done <= '0';
-                end if;
-            end case;
-        end if;
-    end process;
-    TxtOut <= state_reg;    
-    Finish <= process_done; 
+               process_done <= '1';
+               TxtOut <= state_reg;
+               if Enable = '0' then 
+                  state <= idle;
+               end if;
+         end case;
+      end if;
+   end process;
+   Finish <= '1' when process_done = '1' else '0';
 end architecture rtl ; -- of MixColumns
